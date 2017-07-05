@@ -1,11 +1,18 @@
 import React from 'react';
+import Styled from 'styled-components';
+
+
+const Container = Styled.div`
+  margin: 0;
+  height: 40vh;
+`;
 
 class Header extends React.Component {
   render() {
     return (
-        <div>
-            <h1>asela</h1>
-        </div>
+        <Container>
+            <div>asela</div>
+        </Container>
     );
   }
 }
