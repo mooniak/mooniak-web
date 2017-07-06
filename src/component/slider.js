@@ -4,13 +4,13 @@ import Styled from 'styled-components';
 
 const Container = Styled.div`
   height: 60vh;
-  background-color: darkblue;
+  background-color: #263144;
 `;
 
 class Slider extends React.Component {
   render() {
     return (
-        <Container />
+      <Container />
     );
   }
 }
