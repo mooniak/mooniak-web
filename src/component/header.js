@@ -1,7 +1,8 @@
 import React from 'react';
 import Styled from 'styled-components';
-import Themeline from './shared/themeline';
+import FontAwesome from 'react-fontawesome';
 
+import Themeline from './shared/themeline';
 
 const Container = Styled.div`
   height: 35vh;
@@ -24,7 +25,10 @@ const MenuContainer = Styled.div`
   border-right-style:  solid;
   border-width: 1px;
   display: flex;
+  justify-content: center;
   flex: 0.4;
+  padding-left: 50px;
+  padding-right: 50px;
 `;
 
 const PartnersContainer = Styled.div`
@@ -70,7 +74,15 @@ const ContactRow = Styled.div`
 const SocialMediaRow = Styled.div`
   display: flex;
   flex-direction: row;
+  flex: 1;
   align-items: center;
+`;
+
+const CircleBase = Styled.div`
+    border-radius: 50%;
+    width: 70%;
+    height: 100%;
+    background: #bde5e6;
 `;
 
 class Header extends React.Component {
@@ -88,7 +100,9 @@ class Header extends React.Component {
           </LogoContent>
           <Themeline horizontal />
         </LogoContainer>
-        <MenuContainer />
+        <MenuContainer >
+          <CircleBase />
+        </MenuContainer>
         <PartnersContainer />
         <ContactContainer >
           <ContactRow border="solid">
@@ -104,7 +118,23 @@ class Header extends React.Component {
             Sri Lanka
           </ContactRow>
           <Themeline horizontal />
-          <SocialMediaRow />
+          <SocialMediaRow >
+            <FontAwesome
+              name="facebook-official"
+              size="2x"
+              style={ { color: '#333', marginLeft: 10, marginRight: 10 } }
+            />
+            <FontAwesome
+              name="twitter"
+              size="2x"
+              style={ { color: '#333', marginLeft: 10, marginRight: 10 } }
+            />
+            <FontAwesome
+              name="instagram"
+              size="2x"
+              style={ { color: '#333', marginLeft: 10, marginRight: 10 } }
+            />
+          </SocialMediaRow>
         </ContactContainer>
       </Container>
     );
