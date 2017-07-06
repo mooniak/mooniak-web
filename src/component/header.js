@@ -26,16 +26,20 @@ const MenuContainer = Styled.div`
   border-width: 1px;
   display: flex;
   justify-content: center;
-  flex: 0.4;
-  padding-left: 50px;
-  padding-right: 50px;
+  flex: 0.3;
+  padding-left: 100px;
+  padding-right: 100px;
+  position: relative;
 `;
 
 const PartnersContainer = Styled.div`
+  padding-left: 50px;
+  padding-right: 50px;
   border-right-style:  solid;
   border-width: 1px;
   display: flex;
   flex: 0.2;
+  flex-direction: column;
 `;
 
 const ContactContainer = Styled.div`
@@ -79,11 +83,51 @@ const SocialMediaRow = Styled.div`
 `;
 
 const CircleBase = Styled.div`
-    border-radius: 50%;
-    width: 70%;
-    height: 100%;
-    background: #bde5e6;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background: #bde5e6;
 `;
+
+const Overlay = Styled.div`
+  display: flex;
+  flex:1;
+  justify-content: center;
+  z-index: 1;
+  position: absolute;
+  margin-top: 30px;
+  height: 80%;
+  width: 60%;
+`;
+
+const MenuSubContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 0.5;
+`;
+
+const MenuItem = Styled.span`
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+  cursor: pointer;
+`;
+
+const MenuButton = Styled.div`
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 800;
+  border-style: solid;
+  border-width: 2px;
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+`;
+
 
 class Header extends React.Component {
   render() {
@@ -102,8 +146,26 @@ class Header extends React.Component {
         </LogoContainer>
         <MenuContainer >
           <CircleBase />
+          <Overlay>
+            <MenuSubContainer >
+              <Themeline horizontal />
+              <MenuItem>about us</MenuItem>
+              <MenuButton>our services</MenuButton>
+              <MenuItem>projects</MenuItem>
+              <Themeline horizontal />
+            </MenuSubContainer>
+            <MenuSubContainer >
+              <Themeline horizontal />
+              <MenuItem>colombore</MenuItem>
+              <MenuButton>tell us your need</MenuButton>
+              <MenuItem>subscribe</MenuItem>
+            </MenuSubContainer>
+          </Overlay>
         </MenuContainer>
-        <PartnersContainer />
+        <PartnersContainer >
+          <MenuItem>partners</MenuItem>
+          <Themeline horizontal />
+        </PartnersContainer>
         <ContactContainer >
           <ContactRow border="solid">
             0112255000
@@ -112,7 +174,7 @@ class Header extends React.Component {
             hello@mooniak.com
           </ContactRow>
           <ContactRow >
-            MooniakJQ, 33/1,
+            MooniakHQ, 33/1,
             Siriwardena Rd,
             Dehiwala, Colombo,
             Sri Lanka
