@@ -4,12 +4,13 @@ import Styled from 'styled-components';
 import './App.css';
 import Header from './component/header';
 import Slider from './component/slider';
+import Services from './component/services';
 
 
 const MainContainer = Styled.div`
   margin-top: 50px;
   background-color: #91d4d6;
-  height: 100vh;
+  height: 200vh;
   padding: 30px;
 `;
 
@@ -20,6 +21,7 @@ class App extends Component {
         <MainContainer>
           <Header />
           <Slider />
+          <Services />
         </MainContainer>
       </div>
     );
