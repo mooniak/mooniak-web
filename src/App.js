@@ -5,6 +5,7 @@ import './App.css';
 import Header from './component/header';
 import Slider from './component/slider';
 import Services from './component/services';
+import Projects from './component/projects';
 
 
 const MainContainer = Styled.div`
@@ -22,6 +23,7 @@ class App extends Component {
           <Header />
           <Slider />
           <Services />
+          <Projects />
         </MainContainer>
       </div>
     );

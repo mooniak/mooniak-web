@@ -41,8 +41,6 @@ const DContainer = Styled.div`
 `;
 
 const OContainer = Styled.div`
-  border-right-style:  solid;
-  border-width: 1px;
   display: flex;
   flex: 0.4;
   flex-direction: column;
