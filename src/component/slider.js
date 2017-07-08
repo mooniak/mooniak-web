@@ -17,7 +17,6 @@ class SliderComponent extends React.Component {
       speed: 300,
       arrows: false,
       autoplay: true,
-      centerMode: true,
       slidesToShow: 1,
       slidesToScroll: 1,
       fade: true
@@ -26,8 +25,8 @@ class SliderComponent extends React.Component {
     return (
       <Container >
         <Slider { ...settings }>
-          <img src={ Cover } alt="No Cover" height="410" />
-          <img src={ Cover2 } alt="No Cover" height="410" />
+          <img src={ Cover } alt="No Cover" height="420" />
+          <img src={ Cover2 } alt="No Cover" height="420" />
         </Slider>
       </Container>
     );

@@ -6,6 +6,7 @@ import Header from './component/header';
 import Slider from './component/slider';
 import Services from './component/services';
 import Projects from './component/projects';
+import MainNavbar from './component/navbar';
 
 
 const MainContainer = Styled.div`
@@ -19,6 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <MainNavbar />
         <MainContainer>
           <Header />
           <Slider />
