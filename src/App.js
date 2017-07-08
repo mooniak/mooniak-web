@@ -8,7 +8,12 @@ import Services from './component/services';
 import Projects from './component/projects';
 import MainNavbar from './component/navbar';
 
-
+const navigationCheck = (hash) => {
+  const { location } = window;
+  if (location.pathname !== '/') {
+    window.location.href = `/#${hash}`;
+  }
+};
 const MainContainer = Styled.div`
   margin-top: 50px;
   background-color: #91d4d6;
@@ -20,9 +25,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <MainNavbar />
+        <MainNavbar navigationCheck={ navigationCheck } />
         <MainContainer>
-          <Header />
+          <Header navigationCheck={ navigationCheck } />
           <Slider />
           <Services />
           <Projects />

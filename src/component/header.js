@@ -106,18 +106,21 @@ const MenuSubContainer = Styled.div`
   flex: 0.5;
 `;
 
-const MenuItem = Styled.span`
+const MenuItem = Styled.a`
   font-size: 1.2rem;
   font-weight: 800;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 0;
   cursor: pointer;
+  color: inherit;
+  text-decoration: none;
 `;
 
-const MenuButton = Styled.div`
+const MenuButton = Styled.a`
   font-size: 1.2rem;
   cursor: pointer;
+  color: inherit;
   font-weight: 800;
   border-style: solid;
   border-width: 2px;
@@ -126,13 +129,15 @@ const MenuButton = Styled.div`
   margin-bottom: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
+  text-decoration: none;
 `;
 
 
 class Header extends React.Component {
   render() {
+    const { navigationCheck } = this.props;
     return (
-      <Container>
+      <Container id="home">
         <LogoContainer >
           <Themeline horizontal />
           <LogoTitle>Mooniak</LogoTitle>
@@ -150,8 +155,16 @@ class Header extends React.Component {
             <MenuSubContainer >
               <Themeline horizontal />
               <MenuItem>about us</MenuItem>
-              <MenuButton>our services</MenuButton>
-              <MenuItem>projects</MenuItem>
+              <MenuButton
+                href="#services"
+                onClick={ () => navigationCheck('services') }
+              >
+                our services
+              </MenuButton>
+              <MenuItem
+                href="#projects"
+                onClick={ () => navigationCheck('projects') }
+              >projects</MenuItem>
               <Themeline horizontal />
             </MenuSubContainer>
             <MenuSubContainer >

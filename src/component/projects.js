@@ -70,7 +70,7 @@ class Projects extends React.Component {
       }
     ];
     return (
-      <Container >
+      <Container id="projects">
         <FullThemeline />
         <TagsRow>
           <Tag>branding</Tag>

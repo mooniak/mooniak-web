@@ -13,6 +13,7 @@ const NavBarContainer = Styled.div`
   z-index: 9999;
 `;
 
+
 const NavBar = Styled.nav`
   background-color: white;
   text-align: center;
@@ -83,8 +84,8 @@ const MainNav = props => (
         <NavLinks>
           <NavLinkItem>
             <NavLink
-              // href="#services"
-              // onClick={ () => navigationCheck('services') }
+              href="#home"
+              onClick={ () => props.navigationCheck('home') }
               data-scroll
             >
               | menu

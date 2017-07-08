@@ -23,7 +23,7 @@ class SliderComponent extends React.Component {
     };
 
     return (
-      <Container >
+      <Container>
         <Slider { ...settings }>
           <img src={ Cover } alt="No Cover" height="420" />
           <img src={ Cover2 } alt="No Cover" height="420" />
