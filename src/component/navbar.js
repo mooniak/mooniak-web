@@ -21,7 +21,7 @@ const NavBar = Styled.nav`
   padding-bottom: 10px;
   -webkit-transition: all 0.8s;
   transition: all 0.8s;
-  height: 60px;
+  height: 55px;
   display: flex;
   flex-direction: row;
   flex:1;
@@ -34,8 +34,9 @@ const SocialMediaRow = Styled.div`
   justify-content: flex-end;
   padding-top: 10px;
   padding-right: 40px;
-  padding-bottom: 10px;
+  padding-bottom: 10px
   align-self: center;
+  margin: 10px;
 `;
 
 const NavLinks = Styled.ul`
@@ -43,7 +44,7 @@ const NavLinks = Styled.ul`
   display: flex;
   flex-direction: row;
   flex-basis: content;
-  padding-left: 10px;
+  padding-left: 1vw;
 `;
 
 const NavLinkItem = Styled.li`
@@ -56,12 +57,12 @@ const HiddenNavLinks = Styled.li`
   width: 0px;
   flex-direction: row;
   flex-basis: content;
-  padding-left: 10px;
+  padding-left: 1vw;
   visibility: hidden;
 `;
 
 const NavLink = Styled.a`
-  font-size: 1.2rem;
+  font-size: 1.2vw;
   font-weight: 500;
   cursor: pointer;
   color: inherit;
@@ -69,26 +70,26 @@ const NavLink = Styled.a`
 `;
 
 const SubscribeButton = Styled.a`
-  font-size: 1.2rem;
+  font-size: 1.2vw;
   font-weight: 500;
   cursor: pointer;
   color: inherit;
   text-decoration: none;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 2vw;
+  margin-right: 2vw;
   align-self: center;
 `;
 
 const NavLogo = Styled.img`
   align-self: center;
-  width: 45px;
-  height: 35px;
-  margin-left: 50px;
+  width: 4.5vw;
+  height: 4vw;
+  margin-left: 5vw;
 `;
 
 const MainNav = props => (
   <NavBarContainer>
-    <MediaQuery minWidth={ 992 }>
+    <MediaQuery minWidth={ 486 }>
       <NavBar id="mainnav" >
         <NavLogo src={ smallLogo } alt="Menu Logo" id="mainnav-logo" />
         <HiddenNavLinks id="hiddenText">

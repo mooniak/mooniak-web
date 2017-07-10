@@ -7,7 +7,6 @@ import Cover2 from '../assets/images/Farmer_Slider.png';
 
 const Container = Styled.div`
   height: 60vh;
-  background-color: #263144;
 `;
 
 class SliderComponent extends React.Component {

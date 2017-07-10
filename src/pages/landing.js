@@ -15,10 +15,10 @@ const navigationCheck = (hash) => {
   }
 };
 const MainContainer = Styled.div`
-  margin-top: 50px;
+  margin-top: 3vw;
   background-color: #91d4d6;
-  height: 200vh;
-  padding: 30px;
+  height: 220vh;
+  padding: 3vw;
 `;
 
 class App extends Component {

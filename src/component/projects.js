@@ -7,8 +7,8 @@ const Container = Styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 3vw;
+  padding-bottom: 3vw;
 `;
 
 const FullThemeline = Styled.div`
@@ -17,8 +17,8 @@ const FullThemeline = Styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
 `;
 
 const TagsRow = Styled.div`
@@ -27,7 +27,7 @@ const TagsRow = Styled.div`
 `;
 
 const Tag = Styled.h3`
-  font-size: 1.2rem;
+  font-size: 1vw;
   cursor: pointer;
   margin-left: 10px;
   margin-right: 10px;

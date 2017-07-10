@@ -5,8 +5,8 @@ const Container = Styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 10vw;
+  padding-bottom: 3vw;
   position: relative;
 `;
 
@@ -27,7 +27,6 @@ const EContainer = Styled.div`
   flex: 0.4;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px;
 `;
 
 const DContainer = Styled.div`
@@ -37,7 +36,6 @@ const DContainer = Styled.div`
   flex: 0.4;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px;
 `;
 
 const OContainer = Styled.div`
@@ -45,7 +43,6 @@ const OContainer = Styled.div`
   flex: 0.4;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px;
 `;
 
 const backgroundDiv = Styled.div`
@@ -53,7 +50,7 @@ const backgroundDiv = Styled.div`
 `;
 
 const HugeTitle = Styled.span`
-  font-size: 35rem;
+  font-size: 32vw;
   color: white;
   align-self: center;
 `;

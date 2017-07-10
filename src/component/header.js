@@ -18,7 +18,8 @@ const LogoContainer = Styled.div`
   flex: 0.4;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px;
+  padding-left: 2vw;
+  padding-right: 2vw;
 `;
 
 const MenuContainer = Styled.div`
@@ -27,19 +28,19 @@ const MenuContainer = Styled.div`
   display: flex;
   justify-content: center;
   flex: 0.3;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 2vw;
+  padding-right: 2vw;
   position: relative;
 `;
 
 const PartnersContainer = Styled.div`
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 3vw;
+  padding-right: 3vw;
   border-right-style:  solid;
   border-width: 1px;
   display: flex;
   flex: 0.2;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 const ContactContainer = Styled.div`
@@ -47,12 +48,12 @@ const ContactContainer = Styled.div`
   flex: 0.2;
   flex-direction: column;
   align-items: flex-start;
-  padding: 10px;
-  padding-left: 50px;
+  padding-left: 3vw;
+  padding-right: 3vw;
 `;
 
 const LogoTitle = Styled.h1`
-  font-size: 7rem;
+  font-size: 7vw;
   justify-content: center;
   color: white;
   margin: 0;
@@ -60,7 +61,7 @@ const LogoTitle = Styled.h1`
 `;
 
 const LogoContent = Styled.p`
-  font-size: 1.2rem;
+  font-size: 1.1vw;
   margin: 0;
   padding: 0;
   color: #555
@@ -69,10 +70,12 @@ const LogoContent = Styled.p`
 const ContactRow = Styled.div`
   border-bottom-style: ${props => props.border};
   border-width: 0.4px;
-  margin: 6px;
-  padding: 5px;
-  font-size: 1.2rem;
-  color: #555
+  display: flex;
+  flex-direction: column;
+  margin: 0.5vw;
+  padding: 0.5vw;
+  font-size: 1.2vw;
+  color: #555;
 `;
 
 const SocialMediaRow = Styled.div`
@@ -92,12 +95,12 @@ const CircleBase = Styled.div`
 const Overlay = Styled.div`
   display: flex;
   flex:1;
+  margin-top: 3vw;
   justify-content: center;
   z-index: 1;
   position: absolute;
-  margin-top: 30px;
+  width: 80%;
   height: 80%;
-  width: 60%;
 `;
 
 const MenuSubContainer = Styled.div`
@@ -107,10 +110,10 @@ const MenuSubContainer = Styled.div`
 `;
 
 const MenuItem = Styled.a`
-  font-size: 1.2rem;
-  font-weight: 800;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-size: 1.1vw;
+  font-weight: 600;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
   padding: 0;
   cursor: pointer;
   color: inherit;
@@ -118,18 +121,26 @@ const MenuItem = Styled.a`
 `;
 
 const MenuButton = Styled.a`
-  font-size: 1.2rem;
+  font-size: 1.1vw;
+  font-weight: 600;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
   cursor: pointer;
   color: inherit;
-  font-weight: 800;
   border-style: solid;
-  border-width: 2px;
-  margin-top: 10px;
+  border-width: 0.15vw;
   text-align: center;
-  margin-bottom: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
   text-decoration: none;
+`;
+
+const Row = Styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-self: flex-end;
+  margin-bottom: 2px;
 `;
 
 
@@ -168,16 +179,22 @@ class Header extends React.Component {
               <Themeline horizontal />
             </MenuSubContainer>
             <MenuSubContainer >
-              <Themeline horizontal />
-              <MenuItem>colombore</MenuItem>
+              <Row>
+                <MenuItem>colombore</MenuItem>
+                <Themeline vertical />
+              </Row>
               <MenuButton>tell us your need</MenuButton>
-              <MenuItem>subscribe</MenuItem>
+              <Row>
+                <MenuItem>subscribe</MenuItem>
+              </Row>
             </MenuSubContainer>
           </Overlay>
         </MenuContainer>
         <PartnersContainer >
           <MenuItem>partners</MenuItem>
-          <Themeline horizontal />
+          <Row>
+            <Themeline horizontal />
+          </Row>
         </PartnersContainer>
         <ContactContainer >
           <ContactRow border="solid">
@@ -192,7 +209,9 @@ class Header extends React.Component {
             Dehiwala, Colombo,
             Sri Lanka
           </ContactRow>
-          <Themeline horizontal />
+          <Row>
+            <Themeline horizontal />
+          </Row>
           <SocialMediaRow >
             <FontAwesome
               name="facebook-official"
