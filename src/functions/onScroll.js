@@ -1,20 +1,27 @@
+import '../App.css';
+
 const onScroll = (headerHeight) => {
-  const navWithBg = document.getElementById('mainnav');
-  const navLogoWithBg = document.getElementById('mainnav-logo');
+  const normalNav = document.getElementById('mainnav');
+  const hiddenText = document.getElementById('hiddenText');
+
   const { hash, pathname } = window.location;
 
   if (hash || (!hash && pathname === '/')) {
     // 60% of the header then css change
-    if ((headerHeight * 0.6 < window.scrollY)) {
-      navWithBg.classList.add('nav-with-bg');
-      if (navLogoWithBg) { navLogoWithBg.classList.add('nav-logo-with-bg'); }
+    if ((headerHeight * 0.4 < window.scrollY)) {
+      normalNav.classList.add('nav-visible');
     } else {
-      navWithBg.classList.remove('nav-with-bg');
-      if (navLogoWithBg) { navLogoWithBg.classList.remove('nav-logo-with-bg'); }
+      normalNav.classList.remove('nav-visible');
+    }
+
+    if ((headerHeight * 0.6 < window.scrollY)) {
+      hiddenText.classList.add('nav-text-visible');
+    } else {
+      hiddenText.classList.remove('nav-text-visible');
     }
   } else {
-    navWithBg.classList.add('nav-with-bg');
-    if (navLogoWithBg) { navLogoWithBg.classList.add('nav-logo-with-bg'); }
+    // normalNav.classList.add('nav-visible');
+    // hiddenText.classList.add('nav-text-visible');
   }
 };
 

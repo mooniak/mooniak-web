@@ -7,7 +7,7 @@ import smallLogo from '../assets/images/logo.png';
 
 const NavBarContainer = Styled.div`
   position: fixed;
-  ${''/* display: none; */}
+  visibility: hidden;
   top: 0;
   width: 100%;
   z-index: 9999;
@@ -42,12 +42,22 @@ const NavLinks = Styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
-  flex: 1;
+  flex-basis: content;
   padding-left: 10px;
 `;
 
 const NavLinkItem = Styled.li`
   margin: 10px;
+`;
+
+const HiddenNavLinks = Styled.li`
+  list-style: none;
+  display: flex;
+  width: 0px;
+  flex-direction: row;
+  flex-basis: content;
+  padding-left: 10px;
+  visibility: hidden;
 `;
 
 const NavLink = Styled.a`
@@ -79,16 +89,36 @@ const NavLogo = Styled.img`
 const MainNav = props => (
   <NavBarContainer>
     <MediaQuery minWidth={ 992 }>
-      <NavBar id="mainnav" className="">
+      <NavBar id="mainnav" >
         <NavLogo src={ smallLogo } alt="Menu Logo" id="mainnav-logo" />
+        <HiddenNavLinks id="hiddenText">
+          <NavLinkItem>
+            <NavLink
+              href="#services"
+              onClick={ () => props.navigationCheck('services') }
+              data-scroll
+            >
+              |  Our services
+            </NavLink>
+          </NavLinkItem>
+          <NavLinkItem>
+            <NavLink
+              href="#header"
+              onClick={ () => props.navigationCheck('header') }
+              data-scroll
+            >
+              |  tell us your need
+            </NavLink>
+          </NavLinkItem>
+        </HiddenNavLinks>
         <NavLinks>
           <NavLinkItem>
             <NavLink
-              href="#home"
-              onClick={ () => props.navigationCheck('home') }
+              href="#header"
+              onClick={ () => props.navigationCheck('header') }
               data-scroll
             >
-              | menu
+              |  menu
             </NavLink>
           </NavLinkItem>
         </NavLinks>

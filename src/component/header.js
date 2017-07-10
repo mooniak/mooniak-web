@@ -137,7 +137,7 @@ class Header extends React.Component {
   render() {
     const { navigationCheck } = this.props;
     return (
-      <Container id="home">
+      <Container id="header">
         <LogoContainer >
           <Themeline horizontal />
           <LogoTitle>Mooniak</LogoTitle>

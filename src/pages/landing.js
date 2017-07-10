@@ -23,24 +23,24 @@ const MainContainer = Styled.div`
 
 class App extends Component {
   componentDidMount() {
-    // const header = document.getElementById('header');
+    const mainContent = document.getElementById('mainContent');
     // const navWithBg = document.getElementById('mainnav');
     // const navLogoWithBg = document.getElementById('mainnav-logo');
 
     // Smooth scroll
     window.smoothScroll.init({
-      offset: 80,
+      offset: 60,
       speed: 1000
     });
 
-    // if (header) {
-    //   window.addEventListener('scroll', onScroll.bind(this, header.offsetHeight));
+    if (mainContent) {
+      window.addEventListener('scroll', onScroll.bind(this, mainContent.offsetHeight));
     //   navWithBg.classList.remove('nav-with-bg');
     //   if (navLogoWithBg) { navLogoWithBg.classList.remove('nav-logo-with-bg'); }
-    // } else {
+    } else {
     //   navWithBg.classList.add('nav-with-bg');
     //   if (navLogoWithBg) { navLogoWithBg.classList.add('nav-logo-with-bg'); }
-    // }
+    }
   }
 
   componentWillUnmount() {
@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div className="App">
         <MainNavbar navigationCheck={ navigationCheck } />
-        <MainContainer>
+        <MainContainer id="mainContent">
           <Header navigationCheck={ navigationCheck } />
           <Slider />
           <Services />

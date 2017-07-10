@@ -1,1 +1,14 @@
+.nav-visible {
+  visibility: visible !important;
+}
 
+.nav-text-visible {
+  visibility: visible !important;
+  padding: 10px!important;
+  flex-basis: content!important;
+  width: auto !important;
+}
+
+.container {
+  width: auto !important;
+}
