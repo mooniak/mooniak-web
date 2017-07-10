@@ -13,7 +13,6 @@ const NavBarContainer = Styled.div`
   z-index: 9999;
 `;
 
-
 const NavBar = Styled.nav`
   background-color: white;
   text-align: center;
@@ -89,7 +88,7 @@ const NavLogo = Styled.img`
 
 const MainNav = props => (
   <NavBarContainer>
-    <MediaQuery minWidth={ 486 }>
+    <MediaQuery minWidth={ 769 }>
       <NavBar id="mainnav" >
         <NavLogo src={ smallLogo } alt="Menu Logo" id="mainnav-logo" />
         <HiddenNavLinks id="hiddenText">
@@ -143,6 +142,45 @@ const MainNav = props => (
             style={ { color: '#333', marginLeft: 10, marginRight: 10 } }
           />
         </SocialMediaRow>
+      </NavBar>
+    </MediaQuery>
+    <MediaQuery maxWidth={ 768 } >
+      <NavBar id="mobilenav" >
+
+        {/* // add the details components for mobile nav and change them on scroll */}
+
+        {/* <NavLogo src={ smallLogo } alt="Menu Logo" id="mainnav-logo" />
+        <HiddenNavLinks id="hiddenText"> */}
+        {/* <NavLinkItem>
+            <NavLink
+              href="#services"
+              onClick={ () => props.navigationCheck('services') }
+              data-scroll
+            >
+              |  Our services
+            </NavLink>
+            </NavLinkItem>
+            <NavLinkItem>
+            <NavLink
+              href="#header"
+              onClick={ () => props.navigationCheck('header') }
+              data-scroll
+            >
+              |  tell us your need
+            </NavLink>
+            </NavLinkItem>
+            </HiddenNavLinks>
+            <NavLinks>
+            <NavLinkItem>
+            <NavLink
+              href="#header"
+              onClick={ () => props.navigationCheck('header') }
+              data-scroll
+            >
+              |  menu
+            </NavLink>
+            </NavLinkItem>
+        </NavLinks> */}
       </NavBar>
     </MediaQuery>
   </NavBarContainer>

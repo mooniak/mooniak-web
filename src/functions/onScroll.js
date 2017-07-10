@@ -9,19 +9,15 @@ const onScroll = (headerHeight) => {
   if (hash || (!hash && pathname === '/')) {
     // 60% of the header then css change
     if ((headerHeight * 0.5 < window.scrollY)) {
-      normalNav.classList.add('nav-visible');
-    } else {
-      normalNav.classList.remove('nav-visible');
-    }
+      if (normalNav) { normalNav.classList.add('nav-visible'); }
+    } else if (normalNav) { normalNav.classList.remove('nav-visible'); }
 
     if ((headerHeight * 0.9 < window.scrollY)) {
-      hiddenText.classList.add('nav-text-visible');
-    } else {
-      hiddenText.classList.remove('nav-text-visible');
-    }
+      if (hiddenText) { hiddenText.classList.add('nav-text-visible'); }
+    } else if (hiddenText) { hiddenText.classList.remove('nav-text-visible'); }
   } else {
-    // normalNav.classList.add('nav-visible');
-    // hiddenText.classList.add('nav-text-visible');
+    normalNav.classList.add('nav-visible');
+    hiddenText.classList.add('nav-text-visible');
   }
 };
 

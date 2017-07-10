@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Styled from 'styled-components';
+import MediaQuery from 'react-responsive';
 
 import Header from '../component/header';
+import MobileHeader from '../component/mobile_header';
 import Slider from '../component/slider';
 import Services from '../component/services';
 import Projects from '../component/projects';
 import MainNavbar from '../component/navbar';
 import onScroll from '../functions/onScroll';
+
 
 const navigationCheck = (hash) => {
   const { location } = window;
@@ -52,7 +55,12 @@ class App extends Component {
       <div className="App">
         <MainNavbar navigationCheck={ navigationCheck } />
         <MainContainer id="mainContent">
-          <Header navigationCheck={ navigationCheck } />
+          <MediaQuery minWidth={ 769 }>
+            <Header navigationCheck={ navigationCheck } />
+          </MediaQuery>
+          <MediaQuery maxWidth={ 769 } >
+            <MobileHeader navigationCheck={ navigationCheck } />
+          </MediaQuery>
           <Slider />
           <Services />
           <Projects />
