@@ -143,6 +143,13 @@ const Row = Styled.div`
   margin-bottom: 2px;
 `;
 
+const SocialIcon = Styled(FontAwesome)`
+  color: #222;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 6vw;
+`;
+
 
 class Header extends React.Component {
   render() {
@@ -213,20 +220,14 @@ class Header extends React.Component {
             <Themeline horizontal />
           </Row>
           <SocialMediaRow >
-            <FontAwesome
+            <SocialIcon
               name="facebook-official"
-              size="2x"
-              style={ { color: '#333', marginLeft: 10, marginRight: 10 } }
             />
-            <FontAwesome
+            <SocialIcon
               name="twitter"
-              size="2x"
-              style={ { color: '#333', marginLeft: 10, marginRight: 10 } }
             />
-            <FontAwesome
+            <SocialIcon
               name="instagram"
-              size="2x"
-              style={ { color: '#333', marginLeft: 10, marginRight: 10 } }
             />
           </SocialMediaRow>
         </ContactContainer>

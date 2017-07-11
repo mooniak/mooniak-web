@@ -5,7 +5,7 @@ import FontAwesome from 'react-fontawesome';
 import Themeline from './shared/themeline';
 
 const Container = Styled.div`
-  height: 50vh;
+  height: ${props => ((props.isMenuOpen) ? '100vh' : '50vh')};
   display: flex;
   flex-direction: column;
 `;
@@ -44,6 +44,14 @@ const MenuContainer = Styled.div`
   padding-right: 2vw;
 `;
 
+const Dropdown = Styled.div`
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  padding: 2vw;
+`;
+
 const CircleBase = Styled.div`
   border-radius: 50%;
   width: 30vw;
@@ -62,7 +70,7 @@ const Overlay = Styled.div`
 
 const MenuItem = Styled.a`
   font-size: 4vw;
-  font-weight: 600;
+  font-weight: 500;
   padding: 0;
   cursor: pointer;
   align-self: center;
@@ -72,8 +80,8 @@ const MenuItem = Styled.a`
 `;
 
 const MenuButton = Styled.a`
-  font-size: 4vw;
-  font-weight: 600;
+  font-size: 3.5vw;
+  font-weight: 500;
   margin-top: 1vw;
   margin-bottom: 1vw;
   cursor: pointer;
@@ -114,41 +122,65 @@ const SubscribeContainer = Styled.div`
   justify-content: center;
 `;
 
+const ColomboreContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 10px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+`;
 
-// // //////////////////////////////////////
-// const ContactContainer = Styled.div`
-//   display: flex;
-//   flex: 1;
-//   flex-direction: column;
-//   align-items: flex-start;
-//   padding-left: 3vw;
-//   padding-right: 3vw;
-// `;
-//
-// const ContactRow = Styled.div`
-//   border-bottom-style: ${props => props.border};
-//   border-width: 0.4px;
-//   display: flex;
-//   flex-direction: column;
-//   margin: 0.5vw;
-//   padding: 0.5vw;
-//   font-size: 1.2vw;
-//   color: #555;
-// `;
+const ContactContainer = Styled.div`
+  display: flex;
+  margin-top: 20px;
+  flex: 1;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-right: 10vw;
+  padding-right: 10vw;
+`;
 
+const ContactRow = Styled.div`
+  border-bottom-style: ${props => props.border};
+  border-width: 0.4px;
+  display: flex;
+  flex-direction: column;
+  margin: 1vw;
+  padding: 1vw;
+  font-size: 3vw;
+  color: #555;
+`;
 
-// const MenuSubContainer = Styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   flex: 0.5;
-// `;
+const SubContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  flex: 1;
+`;
 
+const XIcon = Styled.div`
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    font-size: 35px;
+    font-family: monospace;
+    align-self: center;
+`;
+
+const SocialIcon = Styled(FontAwesome)`
+  color: #222;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 6vw;
+`;
 
 class Header extends React.Component {
   render() {
-    const { navigationCheck } = this.props;
+    const { navigationCheck, isMenuOpen = true } = this.props;
     return (
-      <Container id="header">
+      <Container id="header" isMenuOpen={ isMenuOpen }>
         <PartnersContainer >
           type
           <Themeline vertical />
@@ -163,57 +195,69 @@ class Header extends React.Component {
         <MenuContainer >
           <CircleBase />
           <Overlay>
-            <MenuItem>menu</MenuItem>
+
+            {(!isMenuOpen) ?
+              <MenuItem>menu</MenuItem>
+              : <Dropdown>
+                <XIcon>X</XIcon>
+                <MenuItem>CLOSE</MenuItem>
+                <MenuItem>ABOUT US</MenuItem>
+                <MenuItem>PROJECTS</MenuItem>
+              </Dropdown>
+            }
             <Row>
               <MenuButton
                 href="#services"
                 onClick={ () => navigationCheck('services') }
               >
-                our services
+                OUR SERVICES
               </MenuButton>
               <MenuButton>
-                tell us your need
+                TELL US YOU NEED
               </MenuButton>
             </Row>
+            {(isMenuOpen) ?
+              <ContactContainer >
+                <SubContainer>
+                  <ColomboreContainer>
+                    COLOMBORE
+                  </ColomboreContainer>
+                </SubContainer>
+                <SubContainer>
+                  GET IN TOUCH
+                  <ContactRow border="solid">
+                    0112255000
+                  </ContactRow>
+                  <ContactRow border="solid">
+                    hello@mooniak.com
+                  </ContactRow>
+                  <ContactRow >
+                    MooniakHQ, 33/1,
+                    Siriwardena Rd,
+                    Dehiwala, Colombo,
+                    Sri Lanka
+                  </ContactRow>
+                </SubContainer>
+              </ContactContainer>
+              : null}
             <SocialMediaRow >
-              <FontAwesome
+              <SocialIcon
                 name="facebook-official"
-                size="2x"
-                style={ { color: '#222', marginLeft: 10, marginRight: 10 } }
               />
-              <FontAwesome
+              <SocialIcon
                 name="twitter"
-                size="2x"
-                style={ { color: '#222', marginLeft: 10, marginRight: 10 } }
               />
-              <FontAwesome
+              <SocialIcon
                 name="instagram"
-                size="2x"
-                style={ { color: '#222', marginLeft: 10, marginRight: 10 } }
               />
             </SocialMediaRow>
-            <SubscribeContainer>subscribe</SubscribeContainer>
+            <SubscribeContainer>
+              <MenuItem>
+                subscribe
+              </MenuItem>
+            </SubscribeContainer>
           </Overlay>
         </MenuContainer>
-        {/*
-          <ContactContainer >
-          <ContactRow border="solid">
-            0112255000
-          </ContactRow>
-          <ContactRow border="solid">
-            hello@mooniak.com
-          </ContactRow>
-          <ContactRow >
-            MooniakHQ, 33/1,
-            Siriwardena Rd,
-            Dehiwala, Colombo,
-            Sri Lanka
-          </ContactRow>
-          <Row>
-            <Themeline horizontal />
-          </Row>
-
-        {/* </ContactContainer> */}
       </Container>
     );
   }
