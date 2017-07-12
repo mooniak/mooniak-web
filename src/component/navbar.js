@@ -3,13 +3,13 @@ import Styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 import FontAwesome from 'react-fontawesome';
 
-import smallLogo from '../assets/images/logo.png';
+import smallLogo from '../assets/images/logos/logo.svg';
 
 const NavBarContainer = Styled.div`
   position: fixed;
   visibility: hidden;
   top: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 9999;
 `;
 
@@ -20,7 +20,7 @@ const NavBar = Styled.nav`
   padding-bottom: 10px;
   -webkit-transition: all 0.8s;
   transition: all 0.8s;
-  height: 55px;
+  height: 8vh;
   display: flex;
   flex-direction: row;
   flex:1;

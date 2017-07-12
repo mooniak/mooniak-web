@@ -17,8 +17,8 @@ const navigationCheck = (hash) => {
     window.location.href = `/#${hash}`;
   }
 };
+
 const MainContainer = Styled.div`
-  margin-top: 3vw;
   background-color: #91d4d6;
   height: 220vh;
   padding: 3vw;
@@ -55,10 +55,10 @@ class App extends Component {
       <div className="App">
         <MainNavbar navigationCheck={ navigationCheck } />
         <MainContainer id="mainContent">
-          <MediaQuery minWidth={ 769 }>
+          <MediaQuery minWidth={ 979 }>
             <Header navigationCheck={ navigationCheck } />
           </MediaQuery>
-          <MediaQuery maxWidth={ 769 } >
+          <MediaQuery maxWidth={ 978 } >
             <MobileHeader navigationCheck={ navigationCheck } />
           </MediaQuery>
           <Slider />

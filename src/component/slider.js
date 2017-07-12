@@ -2,11 +2,20 @@ import React from 'react';
 import Styled from 'styled-components';
 import Slider from 'react-slick';
 
-import Cover from '../assets/images/Cover.png';
-import Cover2 from '../assets/images/Farmer_Slider.png';
+import Cover from '../assets/images/cover.png';
+import Cover2 from '../assets/images/farmer_slider.png';
+
 
 const Container = Styled.div`
   height: 60vh;
+`;
+
+const SliderContainer = Styled(Slider)`
+`;
+
+const SlickImage = Styled.div`
+  background-image: url(${props => props.src});
+  height: 450px;
 `;
 
 class SliderComponent extends React.Component {
@@ -15,18 +24,20 @@ class SliderComponent extends React.Component {
       infinite: true,
       speed: 300,
       arrows: false,
+      draggable: false,
+      centerMode: true,
       autoplay: true,
-      slidesToShow: 1,
       slidesToScroll: 1,
+      slidesToShow: 1,
       fade: true
     };
 
     return (
       <Container>
-        <Slider { ...settings }>
-          <img src={ Cover } alt="No Cover" height="420" />
-          <img src={ Cover2 } alt="No Cover" height="420" />
-        </Slider>
+        <SliderContainer { ...settings }>
+          <SlickImage src={ Cover } />
+          <SlickImage src={ Cover2 } />
+        </SliderContainer>
       </Container>
     );
   }

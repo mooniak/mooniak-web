@@ -178,7 +178,7 @@ const SocialIcon = Styled(FontAwesome)`
 
 class Header extends React.Component {
   render() {
-    const { navigationCheck, isMenuOpen = true } = this.props;
+    const { navigationCheck, isMenuOpen = false } = this.props;
     return (
       <Container id="header" isMenuOpen={ isMenuOpen }>
         <PartnersContainer >

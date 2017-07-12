@@ -62,7 +62,7 @@ const Overlay = Styled.div`
   z-index: 1;
   position: absolute;
   margin-top: 30px;
-  height: 60%;
+  height: 50%;
   width: 100%;
 `;
 
