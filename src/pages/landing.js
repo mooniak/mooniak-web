@@ -20,7 +20,7 @@ const navigationCheck = (hash) => {
 
 const MainContainer = Styled.div`
   background-color: #91d4d6;
-  height: 220vh;
+  height: 200vh;
   padding: 3vw;
 `;
 

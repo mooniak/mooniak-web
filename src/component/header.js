@@ -10,7 +10,7 @@ import Texual from '../assets/images/logos/textual logo black -03.svg';
 const Container = Styled.div`
   height: 35vh;
   display: flex;
-  padding-bottom: 50px;
+  padding-bottom: 4vh;
 `;
 
 const LogoContainer = Styled.div`

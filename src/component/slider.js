@@ -11,11 +11,13 @@ const Container = Styled.div`
 `;
 
 const SliderContainer = Styled(Slider)`
+  width: 100%;
 `;
 
 const SlickImage = Styled.div`
   background-image: url(${props => props.src});
-  height: 450px;
+  background-size: cover;
+  height: 50vh;
 `;
 
 class SliderComponent extends React.Component {
@@ -25,9 +27,7 @@ class SliderComponent extends React.Component {
       speed: 300,
       arrows: false,
       draggable: false,
-      centerMode: true,
       autoplay: true,
-      slidesToScroll: 1,
       slidesToShow: 1,
       fade: true
     };
