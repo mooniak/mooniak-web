@@ -7,10 +7,8 @@
 
 .nav-text-visible {
   visibility: visible !important;
-  padding: 10px !important;
-  flex-basis: content !important;
-  width: auto !important;
   opacity: 1  !important;
+  width: auto !important;
 }
 
 .container {

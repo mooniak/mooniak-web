@@ -33,17 +33,18 @@ const SocialMediaRow = Styled.div`
   flex-direction: row;
   flex: 1;
   justify-content: flex-end;
-  padding-top: 10px;
   padding-right: 40px;
-  padding-bottom: 10px
   align-self: center;
-  margin: 10px;
 `;
 
 const NavLinks = Styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
+  align-self: center;
+  width: 0;
+  padding: 0;
+  align-items: flex-start;
   flex-basis: content;
 `;
 
@@ -51,11 +52,14 @@ const NavLinkItem = Styled.li`
   margin: 10px;
 `;
 
-const HiddenNavLinks = Styled.li`
+const HiddenNavLinks = Styled.ul`
   list-style: none;
   display: flex;
-  width: 0px;
   flex-direction: row;
+  align-self: center;
+  width: 0;
+  padding: 0;
+  margin: 0;
   visibility: hidden;
   opacity: 0;
 `;
@@ -81,44 +85,64 @@ const SubscribeButton = Styled.a`
 
 const NavLogo = Styled.img`
   align-self: center;
-  width: 4vw;
-  height: 4vw;
-  margin-left: 5vw;
+  width: 3.5vw;
+  height: 3.5vw;
+  padding: 1vw;
+  margin-left: 3vw;
+`;
+
+const Break = Styled.span`
+  font-size: 1.2vw;
 `;
 
 const MainNav = props => (
   <NavBarContainer>
-    <MediaQuery minWidth={ 769 }>
+    <MediaQuery minWidth={769}>
       <NavBar id="mainnav" >
-        <NavLogo src={ smallLogo } alt="Menu Logo" id="mainnav-logo" />
+        <NavLogo src={smallLogo} alt="Menu Logo" id="mainnav-logo" />
         <HiddenNavLinks id="hiddenText">
+          <NavLinkItem>
+            <Break>
+                |
+            </Break>
+          </NavLinkItem>
           <NavLinkItem>
             <NavLink
               href="#services"
-              onClick={ () => props.navigationCheck('services') }
+              onClick={() => props.navigationCheck('services')}
               data-scroll
             >
-              |  Our services
+              Our services
             </NavLink>
+          </NavLinkItem>
+          <NavLinkItem>
+            <Break>
+                |
+            </Break>
           </NavLinkItem>
           <NavLinkItem>
             <NavLink
               href="#header"
-              onClick={ () => props.navigationCheck('header') }
+              onClick={() => props.navigationCheck('header')}
               data-scroll
             >
-              |  tell us your need
+              Tell us your need
             </NavLink>
           </NavLinkItem>
         </HiddenNavLinks>
         <NavLinks>
           <NavLinkItem>
+            <Break>
+                |
+            </Break>
+          </NavLinkItem>
+          <NavLinkItem>
             <NavLink
               href="#header"
-              onClick={ () => props.navigationCheck('header') }
+              onClick={() => props.navigationCheck('header')}
               data-scroll
             >
-              |  menu
+              menu
             </NavLink>
           </NavLinkItem>
         </NavLinks>
@@ -129,22 +153,22 @@ const MainNav = props => (
           <FontAwesome
             name="facebook-official"
             size="2x"
-            style={ { color: '#333', marginLeft: 10, marginRight: 10 } }
+            style={{ color: '#333', marginLeft: 10, marginRight: 10 }}
           />
           <FontAwesome
             name="twitter"
             size="2x"
-            style={ { color: '#333', marginLeft: 10, marginRight: 10 } }
+            style={{ color: '#333', marginLeft: 10, marginRight: 10 }}
           />
           <FontAwesome
             name="instagram"
             size="2x"
-            style={ { color: '#333', marginLeft: 10, marginRight: 10 } }
+            style={{ color: '#333', marginLeft: 10, marginRight: 10 }}
           />
         </SocialMediaRow>
       </NavBar>
     </MediaQuery>
-    <MediaQuery maxWidth={ 768 } >
+    <MediaQuery maxWidth={768} >
       <NavBar id="mobilenav" >
 
         {/* // add the details components for mobile nav and change them on scroll */}

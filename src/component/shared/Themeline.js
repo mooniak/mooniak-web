@@ -11,7 +11,7 @@ const Line = Styled.div`
   margin-top: ${props => props.alignBottom};
 `;
 
-const Themeline = props => (
+const ThemeLine = props => (
   <Line
     horizontal={(props.horizontal) ? 'solid' : 'none'}
     vertical={(props.vertical) ? 'solid' : 'none'}
@@ -21,4 +21,4 @@ const Themeline = props => (
   />
 );
 
-export default Themeline;
+export default ThemeLine;
