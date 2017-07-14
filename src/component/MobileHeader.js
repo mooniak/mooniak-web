@@ -2,7 +2,7 @@ import React from 'react';
 import Styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 
-import Themeline from './shared/themeline';
+import Themeline from './shared/Themeline';
 
 const Container = Styled.div`
   height: ${props => ((props.isMenuOpen) ? '100vh' : '50vh')};
@@ -180,7 +180,7 @@ class Header extends React.Component {
   render() {
     const { navigationCheck, isMenuOpen = false } = this.props;
     return (
-      <Container id="header" isMenuOpen={ isMenuOpen }>
+      <Container id="header" isMenuOpen={isMenuOpen}>
         <PartnersContainer >
           type
           <Themeline vertical />
@@ -208,7 +208,7 @@ class Header extends React.Component {
             <Row>
               <MenuButton
                 href="#services"
-                onClick={ () => navigationCheck('services') }
+                onClick={() => navigationCheck('services')}
               >
                 OUR SERVICES
               </MenuButton>

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import Styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 
-import Header from '../component/header';
-import MobileHeader from '../component/mobile_header';
-import Slider from '../component/slider';
-import Services from '../component/services';
-import Projects from '../component/projects';
-import MainNavbar from '../component/navbar';
-import onScroll from '../functions/onScroll';
+import Header from '../component/Header';
+import MobileHeader from '../component/MobileHeader';
+import Slider from '../component/Slider';
+import Services from '../component/Services';
+import Projects from '../component/Projects';
+import MainNavbar from '../component/Navbar';
+import onScroll from '../functions/OnScroll';
 
 
 const navigationCheck = (hash) => {
@@ -53,13 +53,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <MainNavbar navigationCheck={ navigationCheck } />
+        <MainNavbar navigationCheck={navigationCheck} />
         <MainContainer id="mainContent">
-          <MediaQuery minWidth={ 979 }>
-            <Header navigationCheck={ navigationCheck } />
+          <MediaQuery minWidth={979}>
+            <Header navigationCheck={navigationCheck} />
           </MediaQuery>
-          <MediaQuery maxWidth={ 978 } >
-            <MobileHeader navigationCheck={ navigationCheck } />
+          <MediaQuery maxWidth={978} >
+            <MobileHeader navigationCheck={navigationCheck} />
           </MediaQuery>
           <Slider />
           <Services />

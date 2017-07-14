@@ -2,10 +2,10 @@ import React from 'react';
 import Styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 
-import Themeline from './shared/themeline';
-import Scrible from '../assets/images/logos/scribble logo black-03.svg';
-import Sense from '../assets/images/logos/sense logo black -03.svg';
-import Texual from '../assets/images/logos/textual logo black -03.svg';
+import Themeline from './shared/Themeline';
+import Scrible from '../assets/images/logos/scribble-logo-black.svg';
+import Sense from '../assets/images/logos/sense-logo-black.svg';
+import Texual from '../assets/images/logos/textual-logo-black.svg';
 
 const Container = Styled.div`
   height: 35vh;
