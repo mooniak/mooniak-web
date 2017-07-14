@@ -18,9 +18,11 @@ const NavBar = Styled.nav`
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
-  -webkit-transition: all 0.8s;
-  transition: all 0.8s;
-  height: 8vh;
+  transform: translateY(0);
+  -webkit-transition: height 0.1s;
+  transition: height 0.1s;
+  height: 0vh;
+  opacity: 0;
   display: flex;
   flex-direction: row;
   flex:1;
@@ -43,7 +45,6 @@ const NavLinks = Styled.ul`
   display: flex;
   flex-direction: row;
   flex-basis: content;
-  padding-left: 1vw;
 `;
 
 const NavLinkItem = Styled.li`
@@ -55,9 +56,8 @@ const HiddenNavLinks = Styled.li`
   display: flex;
   width: 0px;
   flex-direction: row;
-  flex-basis: content;
-  padding-left: 1vw;
   visibility: hidden;
+  opacity: 0;
 `;
 
 const NavLink = Styled.a`
@@ -81,7 +81,7 @@ const SubscribeButton = Styled.a`
 
 const NavLogo = Styled.img`
   align-self: center;
-  width: 4.5vw;
+  width: 4vw;
   height: 4vw;
   margin-left: 5vw;
 `;

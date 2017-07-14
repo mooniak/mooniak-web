@@ -234,7 +234,7 @@ class Header extends React.Component {
             <MenuRow>
               <MenuButton
                 href="#services"
-                onClick={ () => navigationCheck('services') }
+                onClick={() => navigationCheck('services')}
               >
                 OUR SERVICES
               </MenuButton>
@@ -244,7 +244,7 @@ class Header extends React.Component {
               <Column >
                 <MenuItem
                   href="#projects"
-                  onClick={ () => navigationCheck('projects') }
+                  onClick={() => navigationCheck('projects')}
                 >projects</MenuItem>
                 <Themeline
                   horizontal
@@ -267,9 +267,9 @@ class Header extends React.Component {
               alignTop
             />
           </Row>
-          <PartnerLogo src={ Sense } />
-          <PartnerLogo src={ Texual } />
-          <PartnerLogo src={ Scrible } />
+          <PartnerLogo src={Sense} />
+          <PartnerLogo src={Texual} />
+          <PartnerLogo src={Scrible} />
         </PartnersContainer>
         <ContactContainer >
           <ContactRow border="solid">

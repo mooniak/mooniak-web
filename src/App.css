@@ -1,12 +1,16 @@
 .nav-visible {
   visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(1) !important;
+  height: 8vh !important;
 }
 
 .nav-text-visible {
   visibility: visible !important;
-  padding: 10px!important;
-  flex-basis: content!important;
+  padding: 10px !important;
+  flex-basis: content !important;
   width: auto !important;
+  opacity: 1  !important;
 }
 
 .container {

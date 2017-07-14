@@ -69,6 +69,7 @@ class Projects extends React.Component {
 
       }
     ];
+
     return (
       <Container id="projects">
         <FullThemeline />
@@ -77,7 +78,11 @@ class Projects extends React.Component {
           <Tag>Digital Experience</Tag>
           <Tag>Editorial & documenting design</Tag>
         </TagsRow>
-        <Gallery photos={ PHOTO_SET } onClickPhoto={ this.openLightbox } />
+        <Gallery
+          margin={0}
+          photos={PHOTO_SET}
+          onClickPhoto={this.openLightbox}
+        />
         <FullThemeline />
       </Container>
     );

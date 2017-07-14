@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import './assets/styles/fonts.css';
 import Landing from './pages/landing';
 
 
