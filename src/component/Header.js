@@ -1,11 +1,12 @@
 import React from 'react';
 import Styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
-
 import Themeline from './shared/Themeline';
+
 import Scrible from '../assets/images/logos/scribble-logo-black.svg';
 import Sense from '../assets/images/logos/sense-logo-black.svg';
 import Texual from '../assets/images/logos/textual-logo-black.svg';
+
 
 const Container = Styled.div`
   height: 35vh;
@@ -190,6 +191,10 @@ const PartnerText = Styled.div`
   text-align: center;
 `;
 
+const Contactlink = Styled.a`
+  text-decoration: none;
+  color: inherit;
+`;
 
 class Header extends React.Component {
   render() {
@@ -273,10 +278,14 @@ class Header extends React.Component {
         </PartnersContainer>
         <ContactContainer >
           <ContactRow border="solid">
+            <Contactlink href="tel:0112255000">
             0112255000
+            </Contactlink>
           </ContactRow>
           <ContactRow border="solid">
+            <Contactlink href="email:hello@mooniak.com">
             hello@mooniak.com
+            </Contactlink>
           </ContactRow>
           <ContactRow >
             MooniakHQ, 33/1,

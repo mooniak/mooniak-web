@@ -2,7 +2,8 @@ import React from 'react';
 import Styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 
-import Themeline from './shared/Themeline';
+import ThemeLine from './shared/Themeline';
+
 
 const Container = Styled.div`
   height: ${props => ((props.isMenuOpen) ? '100vh' : '50vh')};
@@ -176,6 +177,11 @@ const SocialIcon = Styled(FontAwesome)`
   font-size: 6vw;
 `;
 
+const Contactlink = Styled.a`
+  text-decoration: none;
+  color: inherit;
+`;
+
 class Header extends React.Component {
   render() {
     const { navigationCheck, isMenuOpen = false } = this.props;
@@ -183,11 +189,11 @@ class Header extends React.Component {
       <Container id="header" isMenuOpen={isMenuOpen}>
         <PartnersContainer >
           type
-          <Themeline vertical />
+          <ThemeLine vertical />
           sense
-          <Themeline vertical />
+          <ThemeLine vertical />
           scrible
-          <Themeline vertical />
+          <ThemeLine vertical />
         </PartnersContainer>
         <LogoContainer >
           <LogoTitle>mooniak</LogoTitle>
@@ -205,6 +211,7 @@ class Header extends React.Component {
                 <MenuItem>PROJECTS</MenuItem>
               </Dropdown>
             }
+
             <Row>
               <MenuButton
                 href="#services"
@@ -213,7 +220,7 @@ class Header extends React.Component {
                 OUR SERVICES
               </MenuButton>
               <MenuButton>
-                TELL US YOU NEED
+                TELL US YOUR NEED
               </MenuButton>
             </Row>
             {(isMenuOpen) ?
@@ -226,10 +233,14 @@ class Header extends React.Component {
                 <SubContainer>
                   GET IN TOUCH
                   <ContactRow border="solid">
+                    <Contactlink href="tel:0112255000">
                     0112255000
+                    </Contactlink>
                   </ContactRow>
                   <ContactRow border="solid">
+                    <Contactlink href="email:hello@mooniak.com">
                     hello@mooniak.com
+                    </Contactlink>
                   </ContactRow>
                   <ContactRow >
                     MooniakHQ, 33/1,

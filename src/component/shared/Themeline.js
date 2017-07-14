@@ -11,18 +11,14 @@ const Line = Styled.div`
   margin-top: ${props => props.alignBottom};
 `;
 
-class Themeline extends Component {
-  render() {
-    return (
-      <Line
-        horizontal={ (this.props.horizontal) ? 'solid' : 'none' }
-        vertical={ (this.props.vertical) ? 'solid' : 'none' }
-        height={ (this.props.vertical) ? '3vw' : '0vw' }
-        alignTop={ (this.props.alignTop) ? '1vw' : '0vw' }
-        alignBottom={ this.props.alignBottom ? '2vw' : '0vw' }
-      />
-    );
-  }
-}
+const Themeline = props => (
+  <Line
+    horizontal={(props.horizontal) ? 'solid' : 'none'}
+    vertical={(props.vertical) ? 'solid' : 'none'}
+    height={(props.vertical) ? '3vw' : '0vw'}
+    alignTop={(props.alignTop) ? '1vw' : '0vw'}
+    alignBottom={props.alignBottom ? '2vw' : '0vw'}
+  />
+);
 
 export default Themeline;

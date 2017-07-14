@@ -36,7 +36,7 @@ const Tag = Styled.h3`
 
 class Projects extends React.Component {
   render() {
-    const PHOTO_SET = [
+    const photos = [
       {
         src: 'https://preview.ibb.co/bLQSua/Carto.png',
         height: 400,
@@ -80,8 +80,8 @@ class Projects extends React.Component {
         </TagsRow>
         <Gallery
           margin={0}
-          photos={PHOTO_SET}
-          onClickPhoto={this.openLightbox}
+          photos={photos}
+          // onClickPhoto={this.openLightbox}
         />
         <FullThemeline />
       </Container>

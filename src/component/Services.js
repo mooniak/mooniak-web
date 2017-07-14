@@ -17,12 +17,12 @@ const WContainer = Styled.div`
   align-items: flex-start;
   position: relative;
   &:hover{
- .more-link-container{
-   opacity: 1;
- }
-
- .more-link{
-   transform: translateY(0) scale(1);
+   .more-link-container{
+     opacity: 1;
+   }
+   .more-link{
+     transform: translateY(0) scale(1);
+   }
  }
 `;
 
@@ -36,14 +36,13 @@ const EContainer = Styled.div`
   position: relative;
   align-items: flex-start;
   &:hover{
- .more-link-container{
-   opacity: 1;
- }
-
- .more-link{
-   transform: translateY(0) scale(1);
- }
-`;
+   .more-link-container{
+     opacity: 1;
+   }
+   .more-link{
+     transform: translateY(0) scale(1);
+   }
+ `;
 
 const DContainer = Styled.div`
   height: 30vw;
@@ -55,13 +54,12 @@ const DContainer = Styled.div`
   align-items: flex-start;
   position: relative;
   &:hover{
- .more-link-container{
-   opacity: 1;
- }
-
- .more-link{
-   transform: translateY(0) scale(1);
- }
+   .more-link-container{
+     opacity: 1;
+   }
+   .more-link{
+     transform: translateY(0) scale(1);
+   }
 `;
 
 const OContainer = Styled.div`
@@ -71,17 +69,14 @@ const OContainer = Styled.div`
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  &:hover {
-    &:hover{
+  &:hover{
    .more-link-container{
      opacity: 1;
    }
-
    .more-link{
      transform: translateY(0) scale(1);
    }
-  }
-`;
+ `;
 
 const OverlayTextContainer = Styled.a`
   position: absolute;
@@ -114,7 +109,7 @@ const OverlayText = Styled.span`
   transition: all 0.6s;
 `;
 
-const backgroundDiv = Styled.div`
+const BackgroundDiv = Styled.div`
   align-items: center;
 `;
 
@@ -149,9 +144,9 @@ class Services extends React.Component {
   render() {
     return (
       <Container id="services" >
-        <backgroundDiv>
-          <HugeTitle>  WEDO</HugeTitle>
-        </backgroundDiv>
+        <BackgroundDiv>
+          <HugeTitle>WEDO</HugeTitle>
+        </BackgroundDiv>
         <Overlay>
           <WContainer >
             <OverlayTextContainer className="more-link-container">
