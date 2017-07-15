@@ -102,7 +102,7 @@ const OverlayText = Styled.span`
   align-items: ${props => (props.alignTop ? 'flex-start' : 'flex-end')};
   color: #000;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
   justify-content: ${props => (props.alignRight ? 'flex-start' : 'flex-end')};
   transform: scale(0);
   -webkit-transition: all 0.6s;

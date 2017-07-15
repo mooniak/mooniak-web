@@ -18,7 +18,6 @@ const PartnersContainer = Styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 50px;
 `;
 
 const LogoContainer = Styled.div`
@@ -30,7 +29,7 @@ const LogoContainer = Styled.div`
 `;
 
 const LogoTitle = Styled.h1`
-  font-size: 15vw;
+  font-size: 60px;
   justify-content: center;
   color: white;
   margin: 0;
@@ -55,8 +54,8 @@ const Dropdown = Styled.div`
 
 const CircleBase = Styled.div`
   border-radius: 50%;
-  width: 30vw;
-  height: 30vw;
+  width: 150px;
+  height: 150px;
   background: #bde5e6;
 `;
 
@@ -65,13 +64,14 @@ const Overlay = Styled.div`
   flex:1;
   flex-direction: column;
   justify-content: center;
+  with: 100%;
   z-index: 1;
   position: absolute;
 `;
 
 const MenuItem = Styled.a`
-  font-size: 4vw;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   padding: 0;
   cursor: pointer;
   align-self: center;
@@ -81,24 +81,23 @@ const MenuItem = Styled.a`
 `;
 
 const MenuButton = Styled.a`
-  font-size: 3.5vw;
-  font-weight: 500;
-  margin-top: 1vw;
-  margin-bottom: 1vw;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
   color: inherit;
-  border-style: solid;
-  border-width: 0.5vw;
-  text-align: center;
   padding: 5px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-width: 1.5px;
+  text-align: center;
   text-decoration: none;
 `;
 
-const Row = Styled.div`
+const MenuRow = Styled.div`
   display: flex;
   flex-direction: row;
-  align-self: center;
-  margin-bottom: 2px;
 `;
 
 const SocialMediaRow = Styled.div`
@@ -174,7 +173,7 @@ const SocialIcon = Styled(FontAwesome)`
   color: #222;
   margin-left: 10px;
   margin-right: 10px;
-  font-size: 6vw;
+  font-size: 20px;
 `;
 
 const Contactlink = Styled.a`
@@ -212,17 +211,15 @@ class Header extends React.Component {
               </Dropdown>
             }
 
-            <Row>
+            <MenuRow>
               <MenuButton
                 href="#services"
                 onClick={() => navigationCheck('services')}
               >
                 OUR SERVICES
               </MenuButton>
-              <MenuButton>
-                TELL US YOUR NEED
-              </MenuButton>
-            </Row>
+              <MenuButton>TELL US YOUR NEED</MenuButton>
+            </MenuRow>
             {(isMenuOpen) ?
               <ContactContainer >
                 <SubContainer>

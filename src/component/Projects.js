@@ -1,6 +1,8 @@
 import React from 'react';
 import Styled from 'styled-components';
-import Gallery from 'react-photo-gallery';
+import Masonry from 'react-masonry-component';
+
+import '../assets/styles/gallery.css';
 
 
 const Container = Styled.div`
@@ -27,48 +29,82 @@ const TagsRow = Styled.div`
 `;
 
 const Tag = Styled.h3`
-  font-size: 1vw;
+  font-size: 13px;
   cursor: pointer;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 10px;
 `;
 
+const ProjectImage = Styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+const MasonryContainer = Styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+`;
+
+const GridItem = Styled.div`
+  float: left;
+  width: ${props => ((props.type === 2) ? '50%' : '25%')};
+  // height: ${props => ((props.type === 3) ? '49%' : '24%')};
+
+ `;
 
 class Projects extends React.Component {
   render() {
     const photos = [
       {
-        src: 'https://preview.ibb.co/bLQSua/Carto.png',
-        height: 400,
-        width: 300
+        src: 'https://image.ibb.co/kwd3qF/default.png',
+        type: 1
       },
       {
-        src: 'https://preview.ibb.co/hKbBLF/Farmer.png',
-        height: 400,
-        width: 500
+        src: 'https://image.ibb.co/hiVGAF/default_2.png',
+        type: 1
       },
       {
-        src: 'https://preview.ibb.co/nx997v/Scribble.png',
-        height: 400,
-        width: 200
+        src: 'https://preview.ibb.co/i2CUVF/full_width.png',
+        type: 2
       },
       {
-        src: 'https://preview.ibb.co/kGJDZa/unleash_web.png',
-        height: 300,
-        width: 600
+        src: 'https://image.ibb.co/mbkSHv/full_height.png',
+        type: 3
       },
       {
-        src: 'https://preview.ibb.co/eZUy0F/YZA.png',
-        height: 300,
-        width: 400
+        src: 'https://image.ibb.co/kwd3qF/default.png',
+        type: 1
       },
       {
-        src: 'https://preview.ibb.co/kxdfEa/Adam.png',
-        height: 600,
-        width: 400
-
+        src: 'https://image.ibb.co/hiVGAF/default_2.png',
+        type: 1
+      },
+      {
+        src: 'https://image.ibb.co/kwd3qF/default.png',
+        type: 1
+      },
+      {
+        src: 'https://image.ibb.co/hiVGAF/default_2.png',
+        type: 1
+      },
+      {
+        src: 'https://preview.ibb.co/i2CUVF/full_width.png',
+        type: 2
       }
     ];
+
+    const masonryOptions = {
+      transitionDuration: '0.5s',
+      percentPosition: true,
+      gutter: 0,
+      stagger: 50
+    };
+
+    const childElements = photos.map(element => (
+      <GridItem type={element.type}>
+        <ProjectImage src={element.src} />
+      </GridItem>
+    ));
 
     return (
       <Container id="projects">
@@ -78,11 +114,15 @@ class Projects extends React.Component {
           <Tag>Digital Experience</Tag>
           <Tag>Editorial & documenting design</Tag>
         </TagsRow>
-        <Gallery
-          margin={0}
-          photos={photos}
-          // onClickPhoto={this.openLightbox}
-        />
+        <MasonryContainer>
+          <Masonry
+            className={'grid'} // default ''
+            elementType={'div'} // default 'div'
+            options={masonryOptions} // default {}
+          >
+            {childElements}
+          </Masonry>
+        </MasonryContainer>
         <FullThemeline />
       </Container>
     );
