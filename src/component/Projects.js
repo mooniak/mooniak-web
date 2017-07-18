@@ -9,8 +9,12 @@ const Container = Styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
-  padding-top: 3vw;
+  margin-top: 3vw;
   padding-bottom: 3vw;
+  padding-top: 3vw;
+  background-color: white;
+  padding-left: 60px;
+  padding-right: 60px;
 `;
 
 const FullThemeline = Styled.div`
@@ -20,12 +24,13 @@ const FullThemeline = Styled.div`
   flex: 1;
   flex-direction: column;
   margin-top: 2vw;
-  margin-bottom: 2vw;
+  margin-bottom: 1vw;
 `;
 
 const TagsRow = Styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: 2vw;
 `;
 
 const Tag = Styled.h3`
@@ -48,8 +53,7 @@ const MasonryContainer = Styled.div`
 const GridItem = Styled.div`
   float: left;
   width: ${props => ((props.type === 2) ? '50%' : '25%')};
-  // height: ${props => ((props.type === 3) ? '49%' : '24%')};
-
+  height: auto;
  `;
 
 class Projects extends React.Component {

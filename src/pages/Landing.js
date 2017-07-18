@@ -20,8 +20,7 @@ const navigationCheck = (hash) => {
 
 const MainContainer = Styled.div`
   background-color: #91d4d6;
-  height: 178vh;
-  padding: 3vw;
+  height: auto;
 `;
 
 class App extends Component {

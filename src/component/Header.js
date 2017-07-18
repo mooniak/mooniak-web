@@ -1,16 +1,21 @@
 import React from 'react';
 import Styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
-import Themeline from './shared/Themeline';
 
+import '../assets/styles/header.css';
+
+import Themeline from './shared/Themeline';
 import Scrible from '../assets/images/logos/scribble-logo-black.svg';
 import Sense from '../assets/images/logos/sense-logo-black.svg';
 import Texual from '../assets/images/logos/textual-logo-black.svg';
+import SubscribeContainer from './SubscribeContainer';
 
 
 const Container = Styled.div`
   height: 35vh;
   display: flex;
+  padding-left: 40px;
+  padding-right: 50px;
   padding-bottom: 4vh;
 `;
 
@@ -243,7 +248,7 @@ class Header extends React.Component {
               >
                 OUR SERVICES
               </MenuButton>
-              <MenuButton>TELL US YOUR NEED</MenuButton>
+              <MenuButton className="remove-sideborder" >TELL US YOUR NEED</MenuButton>
             </MenuRow>
             <MenuRow>
               <Column >
@@ -258,7 +263,8 @@ class Header extends React.Component {
               </Column>
               <Column>
                 <Row>
-                  <MenuItem>subscribe</MenuItem>
+                  <SubscribeContainer />
+                  {/* <MenuItem>subscribe</MenuItem> */}
                 </Row>
               </Column>
             </MenuRow>

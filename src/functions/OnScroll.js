@@ -12,7 +12,7 @@ const onScroll = (headerHeight) => {
       if (normalNav) { normalNav.classList.add('nav-visible'); }
     } else if (normalNav) { normalNav.classList.remove('nav-visible'); }
 
-    if ((headerHeight * 0.6 < window.scrollY)) {
+    if ((headerHeight * 0.5 < window.scrollY)) {
       if (hiddenText) { hiddenText.classList.add('nav-text-visible'); }
     } else if (hiddenText) { hiddenText.classList.remove('nav-text-visible'); }
   } else {

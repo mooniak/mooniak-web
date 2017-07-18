@@ -2,6 +2,8 @@ import React from 'react';
 import Styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 
+import '../assets/styles/header.css';
+
 import ThemeLine from './shared/Themeline';
 
 
@@ -218,7 +220,7 @@ class Header extends React.Component {
               >
                 OUR SERVICES
               </MenuButton>
-              <MenuButton>TELL US YOUR NEED</MenuButton>
+              <MenuButton className="remove-sideborder">TELL US YOUR NEED</MenuButton>
             </MenuRow>
             {(isMenuOpen) ?
               <ContactContainer >

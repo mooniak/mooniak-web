@@ -8,6 +8,8 @@ import Cover2 from '../assets/images/farmer_slider.png';
 
 const Container = Styled.div`
   height: 60vh;
+  padding-left: 60px;
+  padding-right: 60px;
 `;
 
 const SliderContainer = Styled(Slider)`
@@ -34,9 +36,9 @@ class SliderComponent extends React.Component {
 
     return (
       <Container>
-        <SliderContainer { ...settings }>
-          <SlickImage src={ Cover } />
-          <SlickImage src={ Cover2 } />
+        <SliderContainer {...settings}>
+          <SlickImage src={Cover} />
+          <SlickImage src={Cover2} />
         </SliderContainer>
       </Container>
     );

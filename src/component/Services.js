@@ -1,10 +1,25 @@
 import React from 'react';
 import Styled from 'styled-components';
+import ReactSVG from 'react-svg';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
+import WEImage from '../assets/images/backgrounds/we_background.svg';
+import DOImage from '../assets/images/backgrounds/do_background.svg';
 
 const Container = Styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+`;
+
+const WatermarkPart1 = Styled(ReactSVG)`
+  width: 50vw;
+  padding: 0;
+`;
+
+const WatermarkPart2 = Styled(ReactSVG)`
+  width: 50vw;
+  padding: 0;
 `;
 
 const WContainer = Styled.div`
@@ -111,12 +126,9 @@ const OverlayText = Styled.span`
 
 const BackgroundDiv = Styled.div`
   align-items: center;
-`;
-
-const HugeTitle = Styled.span`
-  font-size: 32vw;
-  color: white;
-  text-align: center;
+  display: flex;
+  height: 40vw;
+  flex-directyarn saion: row;
 `;
 
 const Overlay = Styled.div`
@@ -144,9 +156,22 @@ class Services extends React.Component {
   render() {
     return (
       <Container id="services" >
-        <BackgroundDiv>
-          <HugeTitle>WEDO</HugeTitle>
-        </BackgroundDiv>
+        <Grid>
+          <Row>
+            <BackgroundDiv>
+              <Col sm={12} lg={6}>
+                <WatermarkPart1
+                  path={WEImage}
+                />
+              </Col>
+              <Col sm={12} lg={6}>
+                <WatermarkPart2
+                  path={DOImage}
+                />
+              </Col>
+            </BackgroundDiv>
+          </Row>
+        </Grid>
         <Overlay>
           <WContainer >
             <OverlayTextContainer className="more-link-container">

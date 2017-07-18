@@ -3,7 +3,11 @@ import Styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 import FontAwesome from 'react-fontawesome';
 
+import SubscribeContainer from './SubscribeContainer';
+import '../assets/styles/contact.css';
+
 import smallLogo from '../assets/images/logos/logo.svg';
+
 
 const NavBarContainer = Styled.div`
   position: fixed;
@@ -65,34 +69,24 @@ const HiddenNavLinks = Styled.ul`
 `;
 
 const NavLink = Styled.a`
-  font-size: 1.2vw;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   color: inherit;
   text-decoration: none;
 `;
 
-const SubscribeButton = Styled.a`
-  font-size: 1.2vw;
-  font-weight: 500;
-  cursor: pointer;
-  color: inherit;
-  text-decoration: none;
-  margin-left: 2vw;
-  margin-right: 2vw;
-  align-self: center;
-`;
 
 const NavLogo = Styled.img`
   align-self: center;
-  width: 3.5vw;
-  height: 3.5vw;
+  width: 40px;
+  height: 40px;
   padding: 1vw;
   margin-left: 3vw;
 `;
 
 const Break = Styled.span`
-  font-size: 1.2vw;
+  font-size: 15px;
 `;
 
 const MainNav = props => (
@@ -147,9 +141,7 @@ const MainNav = props => (
           </NavLinkItem>
         </NavLinks>
         <SocialMediaRow >
-          <SubscribeButton >
-            subscribe
-          </SubscribeButton>
+          <SubscribeContainer navbarMode />
           <FontAwesome
             name="facebook-official"
             size="2x"
