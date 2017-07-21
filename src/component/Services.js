@@ -1,33 +1,41 @@
 import React from 'react';
-import Styled from 'styled-components';
+import styled from 'styled-components';
 import ReactSVG from 'react-svg';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import MediaQuery from 'react-responsive';
 
-import WEImage from '../assets/images/backgrounds/we_background.svg';
-import DOImage from '../assets/images/backgrounds/do_background.svg';
+import WEImage from '../assets/images/backgrounds/we_image.svg';
+import DOImage from '../assets/images/backgrounds/do_image.svg';
 
-const Container = Styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  height: auto;
+  padding-bottom: 30px;
 `;
 
-const WatermarkPart1 = Styled(ReactSVG)`
-  width: 50vw;
+const WatermarkPart1 = styled(ReactSVG)`
+  width: 100%;
+  height: 100%;
   padding: 0;
 `;
 
-const WatermarkPart2 = Styled(ReactSVG)`
-  width: 50vw;
+const WatermarkPart2 = styled(ReactSVG)`
+  width: 100%;
+  height: 100%;
   padding: 0;
 `;
 
-const WContainer = Styled.div`
-  height: 30vw;
+const WContainer = styled.div`
+  height: 60vh;
+  max-height: 400px;
+  @media (max-width: 979px) {
+   height: 35vh;
+ }
   border-right-style:  solid;
   border-width: 1px;
   display: flex;
-  flex: 0.4;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
@@ -41,12 +49,17 @@ const WContainer = Styled.div`
  }
 `;
 
-const EContainer = Styled.div`
-  height: 30vw;
+const EContainer = styled.div`
+  height: 60vh;
+  max-height: 400px;
   border-right-style:  solid;
+  margin-top: 10px;
+     @media (max-width: 979px) {
+      height: 35vh;
+      border-width: 0px;
+    }
   border-width: 1px;
   display: flex;
-  flex: 0.4;
   flex-direction: column;
   position: relative;
   align-items: flex-start;
@@ -59,12 +72,15 @@ const EContainer = Styled.div`
    }
  `;
 
-const DContainer = Styled.div`
-  height: 30vw;
+const DContainer = styled.div`
+  height: 60vh;
+  max-height: 400px;
+  @media (max-width: 979px) {
+   height: 35vh;
+ }
   border-right-style:  solid;
   border-width: 1px;
   display: flex;
-  flex: 0.4;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
@@ -77,10 +93,13 @@ const DContainer = Styled.div`
    }
 `;
 
-const OContainer = Styled.div`
-  height: 30vw;
+const OContainer = styled.div`
+  height: 60vh;
+  max-height: 400px;
+  @media (max-width: 979px) {
+   height: 35vh;
+ }
   display: flex;
-  flex: 0.4;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
@@ -93,7 +112,7 @@ const OContainer = Styled.div`
    }
  `;
 
-const OverlayTextContainer = Styled.a`
+const OverlayTextContainer = styled.a`
   position: absolute;
   top: 0;
   width: 100%;
@@ -107,7 +126,7 @@ const OverlayTextContainer = Styled.a`
   cursor: pointer;
 `;
 
-const OverlayText = Styled.span`
+const OverlayText = styled.span`
   display: flex;
   margin-left: 10px;
   margin-right: 10px;
@@ -124,28 +143,20 @@ const OverlayText = Styled.span`
   transition: all 0.6s;
 `;
 
-const BackgroundDiv = Styled.div`
-  align-items: center;
-  display: flex;
-  height: 40vw;
-  flex-directyarn saion: row;
-`;
-
-const Overlay = Styled.div`
-  margin-top: 5vw;
-  display: flex;
+const Overlay = styled.div`
   justify-content: center;
   z-index: 1;
   position: absolute;
-  height: 80%;
+  height: 100%;
   width: 100%;
 `;
 
-const MenuButton = Styled.div`
+const MenuButton = styled.div`
   font-size: 14px;
   cursor: pointer;
   align-self: center;
   font-weight: 600;
+  margin-top: 30px;
   border-style: solid;
   border-width: 2px;
   text-align: center;
@@ -156,49 +167,62 @@ class Services extends React.Component {
   render() {
     return (
       <Container id="services" >
-        <Grid>
+        <Grid fluid>
           <Row>
-            <BackgroundDiv>
-              <Col sm={12} lg={6}>
-                <WatermarkPart1
-                  path={WEImage}
-                />
-              </Col>
-              <Col sm={12} lg={6}>
-                <WatermarkPart2
-                  path={DOImage}
-                />
-              </Col>
-            </BackgroundDiv>
+            <Col xs={12} sm={12} md={6} lg={6} >
+              <WatermarkPart1
+                path={WEImage}
+              />
+            </Col>
+            <Col xs={12} sm={12} md={6} lg={6} >
+              <WatermarkPart2
+                style={{ margin: 0, padding: 0 }}
+                path={DOImage}
+              />
+            </Col>
           </Row>
         </Grid>
         <Overlay>
-          <WContainer >
-            <OverlayTextContainer className="more-link-container">
-              <OverlayText alignTop className="more-link">KNOW MORE</OverlayText>
-              <OverlayText className="more-link">SEE WORKS</OverlayText>
-            </OverlayTextContainer>
-          </WContainer>
-          <EContainer >
-            <OverlayTextContainer className="more-link-container">
-              <OverlayText alignRight alignTop className="more-link">KNOW MORE</OverlayText>
-              <OverlayText alignRight className="more-link">SEE WORKS</OverlayText>
-            </OverlayTextContainer>
-          </EContainer>
-          <DContainer >
-            <OverlayTextContainer className="more-link-container">
-              <OverlayText alignTop className="more-link">KNOW MORE</OverlayText>
-              <OverlayText className="more-link">SEE WORKS</OverlayText>
-            </OverlayTextContainer>
-          </DContainer>
-          <OContainer >
-            <OverlayTextContainer className="more-link-container">
-              <OverlayText alignRight alignTop className="more-link">KNOW MORE</OverlayText>
-              <OverlayText alignRight className="more-link">SEE WORKS</OverlayText>
-            </OverlayTextContainer>
-          </OContainer>
+          <Grid fluid>
+            <Row>
+              <Col xs={6} sm={6} md={3} lg={3}>
+                <WContainer >
+                  <OverlayTextContainer className="more-link-container">
+                    <OverlayText alignTop className="more-link">KNOW MORE</OverlayText>
+                    <OverlayText className="more-link">SEE WORKS</OverlayText>
+                  </OverlayTextContainer>
+                </WContainer>
+              </Col>
+              <Col xs={6} sm={6} md={3} lg={3}>
+                <EContainer >
+                  <OverlayTextContainer className="more-link-container">
+                    <OverlayText alignRight alignTop className="more-link">KNOW MORE</OverlayText>
+                    <OverlayText alignRight className="more-link">SEE WORKS</OverlayText>
+                  </OverlayTextContainer>
+                </EContainer>
+              </Col>
+              <Col xs={6} sm={6} md={3} lg={3}>
+                <DContainer >
+                  <OverlayTextContainer className="more-link-container">
+                    <OverlayText alignTop className="more-link">KNOW MORE</OverlayText>
+                    <OverlayText className="more-link">SEE WORKS</OverlayText>
+                  </OverlayTextContainer>
+                </DContainer>
+              </Col>
+              <Col xs={6} sm={6} md={3} lg={3}>
+                <OContainer >
+                  <OverlayTextContainer className="more-link-container">
+                    <OverlayText alignRight alignTop className="more-link">KNOW MORE</OverlayText>
+                    <OverlayText alignRight className="more-link">SEE WORKS</OverlayText>
+                  </OverlayTextContainer>
+                </OContainer>
+              </Col>
+            </Row>
+          </Grid>
         </Overlay>
-        <MenuButton>GET IN TOUCH</MenuButton>
+        <MediaQuery minWidth={978} >
+          <MenuButton>GET IN TOUCH</MenuButton>
+        </MediaQuery>
       </Container>
     );
   }

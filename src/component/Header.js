@@ -1,5 +1,5 @@
 import React from 'react';
-import Styled from 'styled-components';
+import styled from 'styled-components';
 import FontAwesome from 'react-fontawesome';
 
 import '../assets/styles/header.css';
@@ -11,7 +11,7 @@ import Texual from '../assets/images/logos/textual-logo-black.svg';
 import SubscribeContainer from './SubscribeContainer';
 
 
-const Container = Styled.div`
+const Container = styled.div`
   height: 35vh;
   display: flex;
   padding-left: 40px;
@@ -19,7 +19,7 @@ const Container = Styled.div`
   padding-bottom: 4vh;
 `;
 
-const LogoContainer = Styled.div`
+const LogoContainer = styled.div`
   height: 220px;
   border-right-style:  solid;
   border-width: 1px;
@@ -33,7 +33,7 @@ const LogoContainer = Styled.div`
   margin-bottom: auto;
 `;
 
-const MenuContainer = Styled.div`
+const MenuContainer = styled.div`
   height: 220px;
   border-right-style:  solid;
   border-width: 1px;
@@ -45,9 +45,11 @@ const MenuContainer = Styled.div`
   padding-right: 2vw;
   margin-top: auto;
   margin-bottom: auto;
+
+
 `;
 
-const PartnersContainer = Styled.div`
+const PartnersContainer = styled.div`
   height: 220px;
   padding-left: 3vw;
   padding-right: 3vw;
@@ -60,7 +62,7 @@ const PartnersContainer = Styled.div`
   margin-bottom: auto;
 `;
 
-const ContactContainer = Styled.div`
+const ContactContainer = styled.div`
   height: 220px;
   display: flex;
   flex: 0.2;
@@ -72,7 +74,7 @@ const ContactContainer = Styled.div`
   margin-bottom: auto;
 `;
 
-const LogoTitle = Styled.h1`
+const LogoTitle = styled.h1`
   font-size: 100px;
   text-align: flex-start;
   font-family: mooniak;
@@ -82,14 +84,14 @@ const LogoTitle = Styled.h1`
   padding: 0;
 `;
 
-const LogoContent = Styled.p`
+const LogoContent = styled.p`
   font-size: 13px;
   margin: 0;
   padding: 0;
   color: #555
 `;
 
-const ContactRow = Styled.div`
+const ContactRow = styled.div`
   border-bottom-style: ${props => props.border};
   border-width: 0.4px;
   display: flex;
@@ -101,7 +103,7 @@ const ContactRow = Styled.div`
   color: #444;
 `;
 
-const SocialMediaRow = Styled.div`
+const SocialMediaRow = styled.div`
   display: flex;
   margin-top: auto;
   flex-direction: row;
@@ -109,7 +111,7 @@ const SocialMediaRow = Styled.div`
   align-items: center;
 `;
 
-const CircleBase = Styled.div`
+const CircleBase = styled.div`
   border-radius: 50%;
   margin-top: auto;
   margin-bottom: auto;
@@ -118,7 +120,7 @@ const CircleBase = Styled.div`
   background: #bde5e6;
 `;
 
-const Overlay = Styled.div`
+const Overlay = styled.div`
   display: flex;
   flex:1;
   flex-direction: column;
@@ -129,13 +131,13 @@ const Overlay = Styled.div`
   width: 22vw;
 `;
 
-const Column = Styled.div`
+const Column = styled.div`
   display: flex;
   flex: 0.5;
   flex-direction: column;
 `;
 
-const MenuItem = Styled.a`
+const MenuItem = styled.a`
   font-size: 14px;
   font-weight: 600;
   margin-top: 1vw;
@@ -146,7 +148,7 @@ const MenuItem = Styled.a`
   text-decoration: none;
 `;
 
-const MenuButton = Styled.a`
+const MenuButton = styled.a`
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -161,7 +163,7 @@ const MenuButton = Styled.a`
   text-decoration: none;
 `;
 
-const Row = Styled.div`
+const Row = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -169,25 +171,25 @@ const Row = Styled.div`
   margin-bottom: 2px;
 `;
 
-const MenuRow = Styled.div`
+const MenuRow = styled.div`
   display: flex;
   flex-direction: row;
 `;
 
-const SocialIcon = Styled(FontAwesome)`
+const SocialIcon = styled(FontAwesome)`
   color: #222;
   margin-left: 10px;
   margin-right: 10px;
   font-size: 22px;
 `;
 
-const PartnerLogo = Styled.img`
+const PartnerLogo = styled.img`
   margin: 10px;
   width: 80%;
   height: 20%;
 `;
 
-const PartnerText = Styled.div`
+const PartnerText = styled.div`
   display: flex;
   flex-direction: row;
   font-weight: 600;
@@ -196,7 +198,7 @@ const PartnerText = Styled.div`
   text-align: center;
 `;
 
-const Contactlink = Styled.a`
+const Contactlink = styled.a`
   text-decoration: none;
   color: inherit;
 `;

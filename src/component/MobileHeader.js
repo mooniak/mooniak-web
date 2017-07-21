@@ -11,11 +11,10 @@ const Container = Styled.div`
   height: ${props => ((props.isMenuOpen) ? '100vh' : '50vh')};
   display: flex;
   flex-direction: column;
+  padding: 0;
 `;
 
 const PartnersContainer = Styled.div`
-  padding-left: 3vw;
-  padding-right: 3vw;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,8 +25,8 @@ const LogoContainer = Styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
 `;
 
 const LogoTitle = Styled.h1`
@@ -42,8 +41,6 @@ const MenuContainer = Styled.div`
   display: flex;
   justify-content: center;
   flex: 1;
-  padding-left: 2vw;
-  padding-right: 2vw;
 `;
 
 const Dropdown = Styled.div`
@@ -51,7 +48,6 @@ const Dropdown = Styled.div`
   justify-content: center;
   flex: 1;
   flex-direction: column;
-  padding: 2vw;
 `;
 
 const CircleBase = Styled.div`
@@ -63,10 +59,8 @@ const CircleBase = Styled.div`
 
 const Overlay = Styled.div`
   display: flex;
-  flex:1;
   flex-direction: column;
   justify-content: center;
-  with: 100%;
   z-index: 1;
   position: absolute;
 `;
@@ -83,7 +77,7 @@ const MenuItem = Styled.a`
 `;
 
 const MenuButton = Styled.a`
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 600;
   cursor: pointer;
   color: inherit;
@@ -140,8 +134,8 @@ const ContactContainer = Styled.div`
   flex: 1;
   flex-direction: row;
   align-items: flex-start;
-  padding-right: 10vw;
-  padding-right: 10vw;
+  padding-right: 2vw;
+  padding-right: 2vw;
 `;
 
 const ContactRow = Styled.div`
@@ -184,8 +178,22 @@ const Contactlink = Styled.a`
 `;
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMenuOpen: false
+    };
+    this.toggleMobileNavbar = this.toggleMobileNavbar.bind(this);
+  }
+
+  toggleMobileNavbar() {
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
+  }
+
   render() {
-    const { navigationCheck, isMenuOpen = false } = this.props;
+    const { navigationCheck } = this.props;
+    const { isMenuOpen } = this.state;
+
     return (
       <Container id="header" isMenuOpen={isMenuOpen}>
         <PartnersContainer >
@@ -202,17 +210,22 @@ class Header extends React.Component {
         <MenuContainer >
           <CircleBase />
           <Overlay>
-
             {(!isMenuOpen) ?
-              <MenuItem>menu</MenuItem>
-              : <Dropdown>
+              <Dropdown onClick={() => this.toggleMobileNavbar()} >
+                <MenuItem >
+                menu
+                </MenuItem>
+              </Dropdown>
+              :
+              <Dropdown
+                onClick={() => this.toggleMobileNavbar()}
+              >
                 <XIcon>X</XIcon>
                 <MenuItem>CLOSE</MenuItem>
                 <MenuItem>ABOUT US</MenuItem>
                 <MenuItem>PROJECTS</MenuItem>
               </Dropdown>
             }
-
             <MenuRow>
               <MenuButton
                 href="#services"
@@ -272,6 +285,5 @@ class Header extends React.Component {
     );
   }
 }
-
 
 export default Header;
