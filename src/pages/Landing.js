@@ -8,6 +8,7 @@ import Slider from '../component/Slider';
 import Services from '../component/Services';
 import Projects from '../component/Projects';
 import MainNavbar from '../component/Navbar';
+import Project from '../component/Project';
 import onScroll from '../functions/OnScroll';
 
 
@@ -25,10 +26,18 @@ const MainContainer = Styled.div`
 `;
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isProjectSelected: true,
+      selectedProjectId: 0
+    };
+
+    this.selectProject = this.selectProject.bind(this);
+  }
+
   componentDidMount() {
     const mainContent = document.getElementById('mainContent');
-    // const navWithBg = document.getElementById('mainnav');
-    // const navLogoWithBg = document.getElementById('mainnav-logo');
 
     // Smooth scroll
     window.smoothScroll.init({
@@ -38,11 +47,6 @@ class App extends Component {
 
     if (mainContent) {
       window.addEventListener('scroll', onScroll.bind(this, mainContent.offsetHeight));
-    //   navWithBg.classList.remove('nav-with-bg');
-    //   if (navLogoWithBg) { navLogoWithBg.classList.remove('nav-logo-with-bg'); }
-    } else {
-    //   navWithBg.classList.add('nav-with-bg');
-    //   if (navLogoWithBg) { navLogoWithBg.classList.add('nav-logo-with-bg'); }
     }
   }
 
@@ -50,7 +54,14 @@ class App extends Component {
     window.removeEventListener('scroll', onScroll);
   }
 
+  selectProject() {
+    this.setState({
+      isProjectSelected: !this.state.isProjectSelected
+    });
+  }
+
   render() {
+    const { isProjectSelected, selectedProjectId } = this.state;
     return (
       <div className="App">
         <MainNavbar navigationCheck={navigationCheck} />
@@ -63,7 +74,16 @@ class App extends Component {
           </MediaQuery>
           <Slider />
           <Services />
-          <Projects />
+          {(isProjectSelected) ?
+            <Project
+              onClickAction={this.selectProject}
+              selectedProjectId={selectedProjectId}
+            />
+            :
+            <Projects
+              onClickAction={this.selectProject}
+            />
+          }
         </MainContainer>
       </div>
     );

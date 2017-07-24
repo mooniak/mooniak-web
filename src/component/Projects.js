@@ -49,6 +49,7 @@ const Tag = styled.h3`
 
 const TagButton = styled.span`
   font-size: 13px;
+  font-weight: 500px;
   justify-content: flex-end;
   cursor: pointer;
   padding: 10px;
@@ -57,6 +58,7 @@ const TagButton = styled.span`
 const ProjectImage = styled.img`
   width: 100%;
   height: 100%;
+  cursor: pointer;
 `;
 
 const MasonryContainer = styled.div`
@@ -75,8 +77,8 @@ const GridItem = styled.div`
  `;
 
 class Projects extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isProjectsExpanded: false
     };
@@ -131,7 +133,9 @@ class Projects extends React.Component {
 
     const childElements = photos.map(element => (
       <GridItem type={element.type}>
-        <ProjectImage src={element.src} />
+        <ProjectImage
+          src={element.src}
+        />
       </GridItem>
     ));
 
@@ -162,12 +166,12 @@ class Projects extends React.Component {
             : null
           }
         </MediaQuery>
-
         <MasonryContainer>
           <Masonry
             className={'grid'} // default ''
             elementType={'div'} // default 'div'
             options={masonryOptions} // default {}
+            onClick={() => this.props.onClickAction()}
           >
             {childElements}
           </Masonry>

@@ -7,9 +7,10 @@ import Cover2 from '../assets/images/farmer_slider.png';
 
 
 const Container = Styled.div`
-  height: 60vh;
-  padding-left: 5vw;
-  padding-right: 5vw;
+  height: 65vh;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  padding-bottom: 10vw;
 `;
 
 const SliderContainer = Styled(Slider)`
@@ -19,7 +20,7 @@ const SliderContainer = Styled(Slider)`
 const SlickImage = Styled.div`
   background-image: url(${props => props.src});
   background-size: cover;
-  height: 50vh;
+  height: 60vh;
 `;
 
 class SliderComponent extends React.Component {
