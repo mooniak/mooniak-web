@@ -1,24 +1,16 @@
-.App {
-  text-align: center;
+.nav-visible {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateY(1) !important;
+  height: 8vh !important;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.nav-text-visible {
+  visibility: visible !important;
+  opacity: 1  !important;
+  width: auto !important;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.container {
+  width: auto !important;
 }

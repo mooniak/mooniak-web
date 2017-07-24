@@ -1,0 +1,182 @@
+import React from 'react';
+import styled from 'styled-components';
+import Masonry from 'react-masonry-component';
+import MediaQuery from 'react-responsive';
+
+import '../assets/styles/gallery.css';
+
+
+const Container = styled.div`
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vw;
+  padding-bottom: 3vw;
+  padding-top: 3vw;
+  background-color: white;
+  padding-left: 5vw;
+  padding-right: 5vw;
+`;
+
+const FullThemeline = styled.div`
+  border-bottom-style:  solid;
+  border-width: 1px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-top: 2vw;
+  margin-bottom: 1vw;
+`;
+
+const TagsRow = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 3vw;
+`;
+
+const TagsColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10vw;
+`;
+
+const Tag = styled.h3`
+  font-size: 13px;
+  cursor: pointer;
+  margin: 10px;
+`;
+
+const TagButton = styled.span`
+  font-size: 13px;
+  justify-content: flex-end;
+  cursor: pointer;
+  padding: 10px;
+`;
+
+const ProjectImage = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
+const MasonryContainer = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+`;
+
+const GridItem = styled.div`
+  float: left;
+  width: ${props => ((props.type === 2) ? '50%' : '25%')};
+  @media (max-width: 979px){
+    width: ${props => ((props.type === 2) ? '100%' : '50%')};
+  }
+  height: auto;
+ `;
+
+class Projects extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isProjectsExpanded: false
+    };
+  }
+
+  render() {
+    const photos = [
+      {
+        src: 'https://image.ibb.co/kwd3qF/default.png',
+        type: 1
+      },
+      {
+        src: 'https://image.ibb.co/hiVGAF/default_2.png',
+        type: 1
+      },
+      {
+        src: 'https://preview.ibb.co/i2CUVF/full_width.png',
+        type: 2
+      },
+      {
+        src: 'https://image.ibb.co/mbkSHv/full_height.png',
+        type: 3
+      },
+      {
+        src: 'https://image.ibb.co/kwd3qF/default.png',
+        type: 1
+      },
+      {
+        src: 'https://image.ibb.co/hiVGAF/default_2.png',
+        type: 1
+      },
+      {
+        src: 'https://image.ibb.co/kwd3qF/default.png',
+        type: 1
+      },
+      {
+        src: 'https://image.ibb.co/hiVGAF/default_2.png',
+        type: 1
+      },
+      {
+        src: 'https://preview.ibb.co/i2CUVF/full_width.png',
+        type: 2
+      }
+    ];
+
+    const masonryOptions = {
+      transitionDuration: '0.5s',
+      percentPosition: true,
+      gutter: 0,
+      stagger: 50
+    };
+
+    const childElements = photos.map(element => (
+      <GridItem type={element.type}>
+        <ProjectImage src={element.src} />
+      </GridItem>
+    ));
+
+    return (
+      <Container id="projects">
+        <FullThemeline />
+        <MediaQuery minWidth={978} >
+          <TagsRow align={'left'}>
+            <Tag>branding</Tag>
+            <Tag>Digital Experience</Tag>
+            <Tag>Editorial & documenting design</Tag>
+          </TagsRow>
+        </MediaQuery>
+        <MediaQuery maxWidth={979} >
+          <TagsRow align={'right'}>
+            <TagButton
+              onClick={() => this.setState({ isProjectsExpanded: !this.state.isProjectsExpanded })}
+            >
+                All Works
+            </TagButton>
+          </TagsRow>
+          {(this.state.isProjectsExpanded) ?
+            <TagsColumn>
+              <Tag>branding</Tag>
+              <Tag>Digital Experience</Tag>
+              <Tag>Editorial & documenting design</Tag>
+            </TagsColumn>
+            : null
+          }
+        </MediaQuery>
+
+        <MasonryContainer>
+          <Masonry
+            className={'grid'} // default ''
+            elementType={'div'} // default 'div'
+            options={masonryOptions} // default {}
+          >
+            {childElements}
+          </Masonry>
+        </MasonryContainer>
+        <FullThemeline />
+      </Container>
+    );
+  }
+}
+
+
+export default Projects;

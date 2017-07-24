@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+
 import './App.css';
-import Header from './Component/header';
+import './assets/styles/fonts.css';
+import Landing from './pages/Landing';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
+      <div className="app">
+        <Landing />
       </div>
     );
   }

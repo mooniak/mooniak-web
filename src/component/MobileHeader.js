@@ -1,0 +1,291 @@
+import React from 'react';
+import Styled from 'styled-components';
+import FontAwesome from 'react-fontawesome';
+
+import '../assets/styles/header.css';
+
+import ThemeLine from './shared/Themeline';
+
+
+const Container = Styled.div`
+  height: ${props => ((props.isMenuOpen) ? '100vh' : '50vh')};
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+`;
+
+const PartnersContainer = Styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const LogoContainer = Styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 1vw;
+  padding-right: 1vw;
+`;
+
+const LogoTitle = Styled.h1`
+  font-size: 60px;
+  justify-content: center;
+  color: white;
+  margin: 0;
+  padding: 0;
+`;
+
+const MenuContainer = Styled.div`
+  display: flex;
+  justify-content: center;
+  flex: 1;
+`;
+
+const Dropdown = Styled.div`
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+`;
+
+const CircleBase = Styled.div`
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background: #e14d54;
+`;
+
+const Overlay = Styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  position: absolute;
+  width: 80vw;
+`;
+
+const MenuItem = Styled.a`
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0;
+  cursor: pointer;
+  align-self: center;
+  padding-bottom: 10px;
+  color: inherit;
+  text-decoration: none;
+`;
+
+const MenuButton = Styled.a`
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  color: inherit;
+  padding: 5px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-style: solid;
+  border-width: 1.5px;
+  text-align: center;
+  text-decoration: none;
+`;
+
+const MenuRow = Styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const SocialMediaRow = Styled.div`
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  align-self: center;
+  align-items: center;
+`;
+
+const SubscribeContainer = Styled.div`
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  border-top-style: solid;
+  border-width: 1px;
+  padding-top: 10px;
+  width: 100%;
+  align-self: center;
+  justify-content: center;
+`;
+
+const ColomboreContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 10px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ContactContainer = Styled.div`
+  display: flex;
+  margin-top: 20px;
+  flex: 1;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-right: 2vw;
+  padding-right: 2vw;
+`;
+
+const ContactRow = Styled.div`
+  border-bottom-style: ${props => props.border};
+  border-width: 0.4px;
+  display: flex;
+  flex-direction: column;
+  margin: 1vw;
+  padding: 1vw;
+  font-size: 3vw;
+  color: #555;
+`;
+
+const SubContainer = Styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  flex: 1;
+`;
+
+const XIcon = Styled.div`
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    flex: 1;
+    font-size: 35px;
+    font-family: monospace;
+    align-self: center;
+`;
+
+const SocialIcon = Styled(FontAwesome)`
+  color: #222;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+`;
+
+const Contactlink = Styled.a`
+  text-decoration: none;
+  color: inherit;
+`;
+
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMenuOpen: false
+    };
+    this.toggleMobileNavbar = this.toggleMobileNavbar.bind(this);
+  }
+
+  toggleMobileNavbar() {
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
+  }
+
+  render() {
+    const { navigationCheck } = this.props;
+    const { isMenuOpen } = this.state;
+
+    return (
+      <Container id="header" isMenuOpen={isMenuOpen}>
+        <PartnersContainer >
+          type
+          <ThemeLine vertical />
+          sense
+          <ThemeLine vertical />
+          scrible
+          <ThemeLine vertical />
+        </PartnersContainer>
+        <LogoContainer >
+          <LogoTitle>mooniak</LogoTitle>
+        </LogoContainer>
+        <MenuContainer >
+          <CircleBase />
+          <Overlay>
+            {(!isMenuOpen) ?
+              <Dropdown onClick={() => this.toggleMobileNavbar()} >
+                <MenuItem >
+                menu
+                </MenuItem>
+              </Dropdown>
+              :
+              <Dropdown
+                onClick={() => this.toggleMobileNavbar()}
+              >
+                <XIcon>X</XIcon>
+                <MenuItem>CLOSE</MenuItem>
+                <MenuItem>ABOUT US</MenuItem>
+                <MenuItem>PROJECTS</MenuItem>
+              </Dropdown>
+            }
+            <MenuRow>
+              <MenuButton
+                href="#services"
+                onClick={() => navigationCheck('services')}
+              >
+                OUR SERVICES
+              </MenuButton>
+              <MenuButton className="remove-sideborder">TELL US YOUR NEED</MenuButton>
+            </MenuRow>
+            {(isMenuOpen) ?
+              <ContactContainer >
+                <SubContainer>
+                  <ColomboreContainer>
+                    COLOMBORE
+                  </ColomboreContainer>
+                </SubContainer>
+                <SubContainer>
+                  GET IN TOUCH
+                  <ContactRow border="solid">
+                    <Contactlink href="tel:0112255000">
+                    0112255000
+                    </Contactlink>
+                  </ContactRow>
+                  <ContactRow border="solid">
+                    <Contactlink href="email:hello@mooniak.com">
+                    hello@mooniak.com
+                    </Contactlink>
+                  </ContactRow>
+                  <ContactRow >
+                    MooniakHQ, 33/1,
+                    Siriwardena Rd,
+                    Dehiwala, Colombo,
+                    Sri Lanka
+                  </ContactRow>
+                </SubContainer>
+              </ContactContainer>
+              : null}
+            <SocialMediaRow >
+              <SocialIcon
+                name="facebook-official"
+              />
+              <SocialIcon
+                name="twitter"
+              />
+              <SocialIcon
+                name="instagram"
+              />
+            </SocialMediaRow>
+            <SubscribeContainer>
+              <MenuItem>
+                subscribe
+              </MenuItem>
+            </SubscribeContainer>
+          </Overlay>
+        </MenuContainer>
+      </Container>
+    );
+  }
+}
+
+export default Header;

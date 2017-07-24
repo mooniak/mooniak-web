@@ -1,0 +1,20 @@
+input[type="text"]:-ms-input-placeholder {
+    text-align: right;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+    text-align: right;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input::-moz-placeholder {
+   text-align: right;
+   color: black;
+   font-size: 14px;
+   font-weight: 600;
+}
