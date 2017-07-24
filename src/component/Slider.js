@@ -8,8 +8,8 @@ import Cover2 from '../assets/images/farmer_slider.png';
 
 const Container = Styled.div`
   height: 60vh;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 5vw;
+  padding-right: 5vw;
 `;
 
 const SliderContainer = Styled(Slider)`

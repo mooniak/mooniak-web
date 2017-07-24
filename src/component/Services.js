@@ -12,17 +12,19 @@ const Container = styled.div`
   flex-direction: column;
   position: relative;
   height: auto;
-  padding-bottom: 30px;
+  padding-bottom: 10vh;
 `;
 
 const WatermarkPart1 = styled(ReactSVG)`
   width: 100%;
+  display: flex;
   height: 100%;
   padding: 0;
 `;
 
 const WatermarkPart2 = styled(ReactSVG)`
   width: 100%;
+  display: flex;
   height: 100%;
   padding: 0;
 `;

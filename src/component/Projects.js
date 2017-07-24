@@ -1,11 +1,12 @@
 import React from 'react';
-import Styled from 'styled-components';
+import styled from 'styled-components';
 import Masonry from 'react-masonry-component';
+import MediaQuery from 'react-responsive';
 
 import '../assets/styles/gallery.css';
 
 
-const Container = Styled.div`
+const Container = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
@@ -13,11 +14,11 @@ const Container = Styled.div`
   padding-bottom: 3vw;
   padding-top: 3vw;
   background-color: white;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding-left: 5vw;
+  padding-right: 5vw;
 `;
 
-const FullThemeline = Styled.div`
+const FullThemeline = styled.div`
   border-bottom-style:  solid;
   border-width: 1px;
   display: flex;
@@ -27,36 +28,60 @@ const FullThemeline = Styled.div`
   margin-bottom: 1vw;
 `;
 
-const TagsRow = Styled.div`
+const TagsRow = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: row;
-  margin-bottom: 2vw;
+  margin-bottom: 3vw;
 `;
 
-const Tag = Styled.h3`
+const TagsColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10vw;
+`;
+
+const Tag = styled.h3`
   font-size: 13px;
   cursor: pointer;
   margin: 10px;
 `;
 
-const ProjectImage = Styled.img`
+const TagButton = styled.span`
+  font-size: 13px;
+  justify-content: flex-end;
+  cursor: pointer;
+  padding: 10px;
+`;
+
+const ProjectImage = styled.img`
   width: 100%;
   height: 100%;
 `;
 
-const MasonryContainer = Styled.div`
+const MasonryContainer = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
 `;
 
-const GridItem = Styled.div`
+const GridItem = styled.div`
   float: left;
   width: ${props => ((props.type === 2) ? '50%' : '25%')};
+  @media (max-width: 979px){
+    width: ${props => ((props.type === 2) ? '100%' : '50%')};
+  }
   height: auto;
  `;
 
 class Projects extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isProjectsExpanded: false
+    };
+  }
+
   render() {
     const photos = [
       {
@@ -113,11 +138,31 @@ class Projects extends React.Component {
     return (
       <Container id="projects">
         <FullThemeline />
-        <TagsRow>
-          <Tag>branding</Tag>
-          <Tag>Digital Experience</Tag>
-          <Tag>Editorial & documenting design</Tag>
-        </TagsRow>
+        <MediaQuery minWidth={978} >
+          <TagsRow align={'left'}>
+            <Tag>branding</Tag>
+            <Tag>Digital Experience</Tag>
+            <Tag>Editorial & documenting design</Tag>
+          </TagsRow>
+        </MediaQuery>
+        <MediaQuery maxWidth={979} >
+          <TagsRow align={'right'}>
+            <TagButton
+              onClick={() => this.setState({ isProjectsExpanded: !this.state.isProjectsExpanded })}
+            >
+                All Works
+            </TagButton>
+          </TagsRow>
+          {(this.state.isProjectsExpanded) ?
+            <TagsColumn>
+              <Tag>branding</Tag>
+              <Tag>Digital Experience</Tag>
+              <Tag>Editorial & documenting design</Tag>
+            </TagsColumn>
+            : null
+          }
+        </MediaQuery>
+
         <MasonryContainer>
           <Masonry
             className={'grid'} // default ''

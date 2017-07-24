@@ -54,7 +54,7 @@ const CircleBase = Styled.div`
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  background: #bde5e6;
+  background: #e14d54;
 `;
 
 const Overlay = Styled.div`
@@ -63,6 +63,7 @@ const Overlay = Styled.div`
   justify-content: center;
   z-index: 1;
   position: absolute;
+  width: 80vw;
 `;
 
 const MenuItem = Styled.a`
@@ -159,6 +160,7 @@ const SubContainer = Styled.div`
 const XIcon = Styled.div`
     display: flex;
     flex-direction: row;
+    padding-bottom: 10px;
     flex: 1;
     font-size: 35px;
     font-family: monospace;

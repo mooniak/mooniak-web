@@ -19,7 +19,8 @@ const navigationCheck = (hash) => {
 };
 
 const MainContainer = Styled.div`
-  background-color: #91d4d6;
+  background-color: #ffaf15;
+  padding: 0;
   height: auto;
 `;
 

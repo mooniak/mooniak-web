@@ -117,7 +117,7 @@ const CircleBase = styled.div`
   margin-bottom: auto;
   width: 200px;
   height: 200px;
-  background: #bde5e6;
+  background: #e14d54;
 `;
 
 const Overlay = styled.div`
