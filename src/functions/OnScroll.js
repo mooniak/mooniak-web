@@ -8,7 +8,7 @@ const onScroll = (headerHeight) => {
 
   if (hash || (!hash && pathname === '/')) {
     // 60% of the header then css change
-    if ((headerHeight * 0.3 < window.scrollY)) {
+    if ((headerHeight * 0.1 < window.scrollY)) {
       if (normalNav) { normalNav.classList.add('nav-visible'); }
     } else if (normalNav) { normalNav.classList.remove('nav-visible'); }
 

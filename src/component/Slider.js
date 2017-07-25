@@ -2,10 +2,6 @@ import React from 'react';
 import Styled from 'styled-components';
 import Slider from 'react-slick';
 
-import Cover from '../assets/images/cover.png';
-import Cover2 from '../assets/images/farmer_slider.png';
-
-
 const Container = Styled.div`
   height: 65vh;
   padding-left: 3vw;
@@ -32,14 +28,19 @@ class SliderComponent extends React.Component {
       draggable: false,
       autoplay: true,
       slidesToShow: 1,
-      fade: true
+      fade: true,
+      dots: true
     };
-
+    const { sliderPhotos, changeBackgroundColors } = this.props;
     return (
       <Container>
-        <SliderContainer {...settings}>
-          <SlickImage src={Cover} />
-          <SlickImage src={Cover2} />
+        <SliderContainer
+          {...settings}
+          beforeChange={(index) => {
+            changeBackgroundColors(sliderPhotos[index].bgColor, sliderPhotos[index].altColor);
+          }}
+        >
+          {sliderPhotos.map((photoObject => <SlickImage src={photoObject.src} />))}
         </SliderContainer>
       </Container>
     );

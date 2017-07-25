@@ -117,7 +117,7 @@ const CircleBase = styled.div`
   margin-bottom: auto;
   width: 200px;
   height: 200px;
-  background: #e14d54;
+  background: ${props => props.circleColor};
 `;
 
 const Overlay = styled.div`
@@ -205,7 +205,7 @@ const Contactlink = styled.a`
 
 class Header extends React.Component {
   render() {
-    const { navigationCheck } = this.props;
+    const { navigationCheck, circleColor } = this.props;
     return (
       <Container id="header">
         <LogoContainer >
@@ -226,7 +226,7 @@ class Header extends React.Component {
           />
         </LogoContainer>
         <MenuContainer >
-          <CircleBase />
+          <CircleBase circleColor={circleColor} />
           <Overlay>
             <MenuRow>
               <Column >

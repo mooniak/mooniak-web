@@ -5,7 +5,6 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import Masonry from 'react-masonry-component';
 // import MediaQuery from 'react-responsive';
 
-// reedit before push
 import '../assets/styles/gallery.css';
 
 
@@ -38,7 +37,7 @@ const ExpandContainer = styled.div`
   width: 100%;
   display: flex;
   background-color: white;
-  padding-bottom: 1vh;
+  padding-bottom: 3vh;
 `;
 
 const ProjectImage = styled.img`
@@ -49,9 +48,6 @@ const ProjectImage = styled.img`
 const GridItem = styled.div`
   float: left;
   width: ${props => ((props.type === 2) ? '100%' : '50%')};
-  @media (max-width: 979px){
-    width: ${props => ((props.type === 2) ? '100%' : '50%')};
-  }
   height: auto;
  `;
 
@@ -89,7 +85,7 @@ const TagButton = styled.span`
 
 const BackButtonContainer = styled.div`
   display: flex;
-  flex-grow: 1;
+  flex: 0.5;
   justify-content: flex-start;
   cursor: pointer;
 `;
@@ -103,12 +99,39 @@ const ProjectTitle = styled.span`
   padding: 10px;
 `;
 
+const ProjectTitleLarge = styled.span`
+  display: flex;
+  justify-content: flex-start;
+  font-size: 50px;
+  font-weight: 200px;
+  margin: auto;
+  padding-left: 0px;
+`;
+
+const ProjectDesc = styled.p`
+  display: flex;
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 500px;
+`;
+
 const MoreButtonContainer = styled.div`
   display: flex;
-  flex-grow: 1;
+  flex: 0.5;
   justify-content: flex-end;
-  cursor: pointer;
 `;
+
+const MoreTagsRow = styled.div`
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+`;
+
+const DetailRow = styled(Row)`
+  margin: auto;
+  align-self: flex-end;
+`;
+
 
 class Project extends React.Component {
   constructor(props) {
@@ -178,12 +201,16 @@ class Project extends React.Component {
               >
                 {'<- Back'}
               </TagButton>
+              {(!isProjectDetailsExpanded) ?
+                <ProjectTitle>Magical Island Story Book</ProjectTitle>
+                : null}
             </BackButtonContainer>
-            <ProjectTitle>Magical Island Story Book</ProjectTitle>
-            <Tag>branding</Tag>
-            <Tag>Digital Experience</Tag>
-            <Tag>Editorial & documenting design</Tag>
             <MoreButtonContainer>
+              <MoreTagsRow>
+                <Tag>branding</Tag>
+                <Tag>Digital Experience</Tag>
+                <Tag>Editorial & documenting design</Tag>
+              </MoreTagsRow>
               <TagButton
                 onClick={() =>
                   this.setState({
@@ -191,7 +218,10 @@ class Project extends React.Component {
                   })
                 }
               >
-                Show More
+                {
+                  (!isProjectDetailsExpanded) ?
+                    'Show More' : 'Close'
+                }
               </TagButton>
             </MoreButtonContainer>
           </TagsRow>
@@ -219,12 +249,16 @@ class Project extends React.Component {
               <Grid fluid>
                 <Row>
                   <Col xs={12} sm={12} md={6} lg={6} >
-                    <h1>Magical Island</h1>
+                    <ProjectTitleLarge>Magical Island</ProjectTitleLarge>
+                    <DetailRow>
+                      <ProjectDesc>Client: Magic Isle</ProjectDesc>
+                      <ProjectDesc>Link</ProjectDesc>
+                    </DetailRow>
                   </Col>
                   <Col xs={12} sm={12} md={6} lg={6} >
-                    <p>
+                    <ProjectDesc>
                     There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-                    </p>
+                    </ProjectDesc>
                   </Col>
                 </Row>
               </Grid>

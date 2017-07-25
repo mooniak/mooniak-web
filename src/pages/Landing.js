@@ -11,6 +11,8 @@ import MainNavbar from '../component/Navbar';
 import Project from '../component/Project';
 import onScroll from '../functions/OnScroll';
 
+import Cover from '../assets/images/cover.png';
+import Cover2 from '../assets/images/farmer_slider.png';
 
 const navigationCheck = (hash) => {
   const { location } = window;
@@ -20,20 +22,38 @@ const navigationCheck = (hash) => {
 };
 
 const MainContainer = Styled.div`
-  background-color: #ffaf15;
+  background-color: ${props => props.backgroundColor};
   padding: 0;
   height: auto;
 `;
+
+
+const sliderPhotos = [
+  {
+    src: Cover2,
+    bgColor: '#ffaf15',
+    altColor: '#e14d54'
+  },
+
+  {
+    src: Cover,
+    bgColor: '#86d3d3',
+    altColor: '#cfe1ef'
+  }
+];
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      isProjectSelected: true,
-      selectedProjectId: 0
+      isProjectSelected: false,
+      selectedProjectId: 0,
+      backgroundColor: sliderPhotos[0].bgColor,
+      circleColor: sliderPhotos[0].altColor
     };
 
     this.selectProject = this.selectProject.bind(this);
+    this.changeBackgroundColors = this.changeBackgroundColors.bind(this);
   }
 
   componentDidMount() {
@@ -60,19 +80,35 @@ class App extends Component {
     });
   }
 
+  changeBackgroundColors(bg, alt) {
+    this.setState({
+      backgroundColor: bg,
+      circleColor: alt
+    });
+  }
+
   render() {
-    const { isProjectSelected, selectedProjectId } = this.state;
+    const { circleColor, backgroundColor, isProjectSelected, selectedProjectId } = this.state;
     return (
       <div className="App">
         <MainNavbar navigationCheck={navigationCheck} />
-        <MainContainer id="mainContent">
+        <MainContainer
+          id="mainContent"
+          backgroundColor={backgroundColor}
+        >
           <MediaQuery minWidth={979}>
-            <Header navigationCheck={navigationCheck} />
+            <Header
+              navigationCheck={navigationCheck}
+              circleColor={circleColor}
+            />
           </MediaQuery>
           <MediaQuery maxWidth={978} >
             <MobileHeader navigationCheck={navigationCheck} />
           </MediaQuery>
-          <Slider />
+          <Slider
+            changeBackgroundColors={this.changeBackgroundColors}
+            sliderPhotos={sliderPhotos}
+          />
           <Services />
           {(isProjectSelected) ?
             <Project

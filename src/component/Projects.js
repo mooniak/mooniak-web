@@ -41,7 +41,7 @@ const TagsColumn = styled.div`
   padding-bottom: 10vw;
 `;
 
-const Tag = styled.h3`
+const Tag = styled.a`
   font-size: 13px;
   cursor: pointer;
   margin: 10px;
@@ -76,54 +76,79 @@ const GridItem = styled.div`
   height: auto;
  `;
 
+
+const photos = [
+  {
+    src: 'https://image.ibb.co/kwd3qF/default.png',
+    type: 1,
+    tag: [1]
+  },
+  {
+    src: 'https://image.ibb.co/hiVGAF/default_2.png',
+    type: 1,
+    tag: [1, 2]
+  },
+  {
+    src: 'https://preview.ibb.co/i2CUVF/full_width.png',
+    type: 2,
+    tag: [1]
+  },
+  {
+    src: 'https://image.ibb.co/mbkSHv/full_height.png',
+    type: 3,
+    tag: [1, 2]
+  },
+  {
+    src: 'https://image.ibb.co/kwd3qF/default.png',
+    type: 1,
+    tag: [1]
+  },
+  {
+    src: 'https://image.ibb.co/hiVGAF/default_2.png',
+    type: 1,
+    tag: [1, 2]
+  },
+  {
+    src: 'https://image.ibb.co/kwd3qF/default.png',
+    type: 1,
+    tag: [1]
+  },
+  {
+    src: 'https://image.ibb.co/hiVGAF/default_2.png',
+    type: 1,
+    tag: [1, 2]
+  },
+  {
+    src: 'https://preview.ibb.co/i2CUVF/full_width.png',
+    type: 2,
+    tag: [1, 3]
+  }
+];
+
+
 class Projects extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isProjectsExpanded: false
+      isProjectsExpanded: false,
+      filteredList: photos
     };
   }
 
-  render() {
-    const photos = [
-      {
-        src: 'https://image.ibb.co/kwd3qF/default.png',
-        type: 1
-      },
-      {
-        src: 'https://image.ibb.co/hiVGAF/default_2.png',
-        type: 1
-      },
-      {
-        src: 'https://preview.ibb.co/i2CUVF/full_width.png',
-        type: 2
-      },
-      {
-        src: 'https://image.ibb.co/mbkSHv/full_height.png',
-        type: 3
-      },
-      {
-        src: 'https://image.ibb.co/kwd3qF/default.png',
-        type: 1
-      },
-      {
-        src: 'https://image.ibb.co/hiVGAF/default_2.png',
-        type: 1
-      },
-      {
-        src: 'https://image.ibb.co/kwd3qF/default.png',
-        type: 1
-      },
-      {
-        src: 'https://image.ibb.co/hiVGAF/default_2.png',
-        type: 1
-      },
-      {
-        src: 'https://preview.ibb.co/i2CUVF/full_width.png',
-        type: 2
-      }
-    ];
+  filterList(filterId) {
+    const filtedredPhotos = photos.filter(((photoObject) => {
+      const returningArray = photoObject.tag.filter(tagElement => (tagElement === filterId));
+      return (returningArray.length !== 0);
+    }
+    ));
 
+    console.log(filtedredPhotos);
+    this.setState({
+      filteredList: filtedredPhotos
+    });
+  }
+
+  render() {
     const masonryOptions = {
       transitionDuration: '0.5s',
       percentPosition: true,
@@ -131,7 +156,7 @@ class Projects extends React.Component {
       stagger: 50
     };
 
-    const childElements = photos.map(element => (
+    const childElements = this.state.filteredList.map(element => (
       <GridItem type={element.type}>
         <ProjectImage
           src={element.src}
@@ -143,10 +168,13 @@ class Projects extends React.Component {
       <Container id="projects">
         <FullThemeline />
         <MediaQuery minWidth={978} >
-          <TagsRow align={'left'}>
-            <Tag>branding</Tag>
-            <Tag>Digital Experience</Tag>
-            <Tag>Editorial & documenting design</Tag>
+          <TagsRow>
+            <Tag
+              onClick={() => this.filterList(1)}
+            >branding</Tag>
+            <Tag onClick={() => this.filterList(2)}>Digital Experience</Tag>
+            <Tag onClick={() => this.filterList(3)}>Editorial & documenting design</Tag>
+
           </TagsRow>
         </MediaQuery>
         <MediaQuery maxWidth={979} >
@@ -161,7 +189,6 @@ class Projects extends React.Component {
             <TagsColumn>
               <Tag>branding</Tag>
               <Tag>Digital Experience</Tag>
-              <Tag>Editorial & documenting design</Tag>
             </TagsColumn>
             : null
           }
